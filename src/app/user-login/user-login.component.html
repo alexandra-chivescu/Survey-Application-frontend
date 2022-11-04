@@ -1,0 +1,58 @@
+<div class="img-box" class="left-side">
+  <div class="container-login-left">
+    <h1 class="login-form-title-left">
+      Log In to SurveyApp
+    </h1>
+    <div class="wrap-login-left">
+                <span class="login-logo-img">
+                    <img alt="survey" src='../../assets/images/survey-user-login.png' width="100%">
+                </span>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <p class="copyright">&#169; SurveyApp</p>
+</div>
+<div class="right-side">
+  <div class="top-right-item">
+    <p class="topright">Don't have an account yet?</p>
+    <button class="topright" [routerLink]="['/register-user']" mat-stroked-button>Register</button>
+  </div>
+    <div class="container-login">
+    <div class="wrap-login">
+      <p class="login-form-title-right">
+        Survey App
+      </p>
+      <p class="login-form-description">
+        Get better data with conversational forms, surveys, quizzes & more.
+      </p>
+      <form class="login-form" [formGroup]="signInForm">
+        <mat-form-field class="input-field" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput formControlName="email" (keydown)="pressLogin($event)" required>
+          <mat-error *ngIf="validInput">
+            Email is <strong>required</strong>
+          </mat-error>
+          <mat-hint *ngIf="!emailInput?.value">Enter email</mat-hint>
+        </mat-form-field>
+        <mat-form-field class="input-field" appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" (keydown)="pressLogin($event)"
+                 required>
+          <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <mat-hint *ngIf="!passwordInput?.value">Enter password</mat-hint>
+          <mat-error *ngIf="validInput">
+            Password is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </form>
+      <span class="login-form-btn">
+              <button mat-raised-button class="login-button" (click)="login()">Log In</button>
+      </span>
+    </div>
+  </div>
+
+</div>

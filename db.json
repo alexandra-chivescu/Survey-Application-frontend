@@ -1,0 +1,94 @@
+{
+  "Users": [
+    {
+      "id": 1,
+      "email": "alechivescu@gmail.com",
+      "password": "1234",
+      "type": "user"
+    },
+    {
+      "id": 2,
+      "email": "jchivescu@gmail.com",
+      "password": "1111",
+      "type": "user"
+    },
+    {
+      "id": 3,
+      "email": "test@gmail.com",
+      "password": "test",
+      "type": "creator"
+    },
+    {
+      "id": 4,
+      "email": "test2@gmail.com",
+      "password": "test2",
+      "type": "creator"
+    },
+    {
+      "email": "alechivescu@gmail.com",
+      "password": "1234",
+      "type": "user",
+      "id": 5
+    },
+    {
+      "email": "test3@test.com",
+      "password": "test",
+      "type": "user",
+      "id": 6
+    },
+    {
+      "email": "test@test.com",
+      "password": "test",
+      "type": "user",
+      "id": 7
+    },
+    {
+      "email": "test@test.com",
+      "password": "test",
+      "type": "user",
+      "id": 8
+    },
+    {
+      "email": "test@test.com",
+      "password": "test",
+      "type": "user",
+      "id": 9
+    },
+    {
+      "email": "test@test.com",
+      "password": "test",
+      "type": "user",
+      "id": 10
+    },
+    {
+      "email": "tese@test.com",
+      "password": "233",
+      "type": "user",
+      "id": 11
+    },
+    {
+      "email": "ion@ion.com",
+      "password": "ddddd",
+      "type": "user",
+      "id": 12
+    },
+    {
+      "email": "test@test.com",
+      "password": "ssssss",
+      "type": "user",
+      "id": 13
+    },
+    {
+      "email": "test@test.com",
+      "password": "ssssss",
+      "type": "user",
+      "id": 14
+    },
+    {
+      "email": "test@test.ccc",
+      "password": "dd",
+      "type": "user",
+      "id": 15
+    }
+  ]
+}
