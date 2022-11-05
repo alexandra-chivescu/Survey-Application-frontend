@@ -48,10 +48,28 @@
             Password is <strong>required</strong>
           </mat-error>
         </mat-form-field>
+        <label>Select the type of account:</label>
+        <br>
+        <mat-radio-group (click)="checkedUserType = true" formControlName="type" required>
+          <mat-radio-button value="user">User</mat-radio-button>
+          <mat-radio-button value="creator">Creator</mat-radio-button>
+        </mat-radio-group>
+        <div *ngIf="!checkedUserType">
+          <mat-card class="invalid">
+            <mat-icon class="warning-icon">error</mat-icon>
+            Please select a type for your user.
+          </mat-card>
+        </div>
       </form>
-      <span class="login-form-btn">
-              <button mat-raised-button class="login-button" (click)="register()">Register</button>
+      <span class="register-form-btn">
+              <button mat-raised-button class="register-button" (click)="register()">Register</button>
       </span>
+      <div *ngIf="!validCredentials">
+        <mat-card class="invalid">
+          <mat-icon class="warning-icon">error</mat-icon>
+          Invalid credentials.
+        </mat-card>
+      </div>
     </div>
   </div>
 

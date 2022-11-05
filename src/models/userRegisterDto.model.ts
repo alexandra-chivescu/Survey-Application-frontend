@@ -1,6 +1,4 @@
-import {Optional} from "@angular/core";
-
-export class UserAuthDto {
+export class UserRegisterDto {
   public email : string;
   public password : string;
   public type : string;

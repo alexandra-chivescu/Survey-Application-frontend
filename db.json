@@ -25,70 +25,31 @@
       "type": "creator"
     },
     {
-      "email": "alechivescu@gmail.com",
+      "email": "test_nou@gmail.com",
       "password": "1234",
       "type": "user",
       "id": 5
     },
     {
-      "email": "test3@test.com",
-      "password": "test",
-      "type": "user",
+      "email": "frrfrfr@d",
+      "password": "fefef",
+      "type": "creator",
       "id": 6
     },
     {
-      "email": "test@test.com",
-      "password": "test",
-      "type": "user",
+      "email": "ale@test.com",
+      "password": "alecc",
+      "type": "creator",
       "id": 7
-    },
+    }
+  ],
+  "Surveys" : [
     {
-      "email": "test@test.com",
-      "password": "test",
-      "type": "user",
-      "id": 8
-    },
-    {
-      "email": "test@test.com",
-      "password": "test",
-      "type": "user",
-      "id": 9
-    },
-    {
-      "email": "test@test.com",
-      "password": "test",
-      "type": "user",
-      "id": 10
-    },
-    {
-      "email": "tese@test.com",
-      "password": "233",
-      "type": "user",
-      "id": 11
-    },
-    {
-      "email": "ion@ion.com",
-      "password": "ddddd",
-      "type": "user",
-      "id": 12
-    },
-    {
-      "email": "test@test.com",
-      "password": "ssssss",
-      "type": "user",
-      "id": 13
-    },
-    {
-      "email": "test@test.com",
-      "password": "ssssss",
-      "type": "user",
-      "id": 14
-    },
-    {
-      "email": "test@test.ccc",
-      "password": "dd",
-      "type": "user",
-      "id": 15
+      "id" : 1,
+      "survey_title" : "Survey 1",
+      "creator" : "alechivescu@gmail.com",
+      "start_date" : "11-05-2022",
+      "end_date" : "14-05-2022"
     }
   ]
 }

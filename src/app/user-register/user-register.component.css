@@ -40,7 +40,7 @@
 }
 
 
-.login-button {
+.register-button {
   background-color: #005986;
   color: white;
 
@@ -176,9 +176,10 @@ padding: 4px 55px 33px 55px;
 .input-field {
   width: 100%;
   height: 50%;
+  margin-bottom: 15px;
 }
 
-.login-form-btn {
+.register-form-btn {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -226,4 +227,23 @@ padding: 4px 55px 33px 55px;
   flex-shrink: 0;
   flex-basis: 35%;
   align-items: baseline;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+  margin-top: 10px;
+}
+
+.invalid {
+  background-color: #FFEDED;
+  border-left: 9px solid;
+  border-left-color: #FF6863;
+  color: #2c3e50;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.warning-icon {
+  display: inline-flex;
+  vertical-align: bottom;
 }

@@ -206,3 +206,18 @@ padding: 4px 55px 33px 55px;
   flex-basis: 35%;
   align-items: baseline;
 }
+
+.invalid {
+  background-color: #FFEDED;
+  border-left: 9px solid;
+  border-left-color: #FF6863;
+  color: #2c3e50;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.warning-icon {
+  display: inline-flex;
+  vertical-align: bottom;
+}
+

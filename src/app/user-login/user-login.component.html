@@ -52,6 +52,12 @@
       <span class="login-form-btn">
               <button mat-raised-button class="login-button" (click)="login()">Log In</button>
       </span>
+      <div *ngIf="!validCredentials">
+        <mat-card class="invalid">
+          <mat-icon class="warning-icon">error</mat-icon>
+          Invalid credentials.
+        </mat-card>
+      </div>
     </div>
   </div>
 

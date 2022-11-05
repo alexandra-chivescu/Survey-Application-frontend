@@ -15,13 +15,18 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
 import { UserMainpageComponent } from './user-mainpage/user-mainpage.component';
 import {UserRegisterComponent} from "./user-register/user-register.component";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatRadioModule} from "@angular/material/radio";
+import {MatCardModule} from "@angular/material/card";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: LandingPageComponent},
   {path: 'login-user', component: UserLoginComponent},
   {path: 'register-user', component: UserRegisterComponent},
-  {path: 'home-user', component: UserMainpageComponent}
+  {path: 'home-user', component: UserMainpageComponent},
+  {path: "**", redirectTo: '/home', pathMatch: 'full'}
 ];
 
 @NgModule({
@@ -44,7 +49,11 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes),
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatCheckboxModule,
+    MatSnackBarModule,
+    MatRadioModule,
+    MatCardModule
   ],
   providers: [RouterModule],
   bootstrap: [AppComponent]
