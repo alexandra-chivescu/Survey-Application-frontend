@@ -1,0 +1,32 @@
+<div class="toolbar">
+  <mat-toolbar>
+    <button mat-icon-button class="side-menu-button">
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </button>
+    <span>{{email}}</span>
+    <span class="example-spacer"></span>
+    <div fxShow="true" fxHide.lt-md="true" fxFlex fxLayout>
+      <div fxFlex>
+        <a [routerLink]="'/home-user'" mat-button>All Surveys</a>
+        <a [routerLink]="'/my-surveys'" mat-button>My Surveys</a>
+      </div>
+
+      <div fxFlex fxLayoutAlign="flex-end">
+        <a class="logout-button" fxFlex (click)="logout()" mat-button color="warn">Logout</a>
+      </div>
+    </div>
+
+    <div fxShow="true" fxHide.gt-sm="true">
+    </div>
+  </mat-toolbar>
+  <mat-sidenav-container class="sidenav-cont">
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <a mat-list-item [routerLink]="'/clients-admin'">All Surveys</a>
+        <a mat-list-item [routerLink]="'/atm-funds'">My Surveys</a>
+        <a mat-list-item (click)="sidenav.toggle()" href="">Logout</a>
+
+      </mat-nav-list>
+    </mat-sidenav>
+  </mat-sidenav-container>
+</div>

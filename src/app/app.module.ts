@@ -6,19 +6,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from "@angular/common/http";
 import {OAuthModule} from "angular-oauth2-oidc";
 import {MatButtonModule} from "@angular/material/button";
-import { UserLoginComponent } from './user-login/user-login.component';
+import { UserLoginComponent } from './components/user-login/user-login.component';
 import {RouterLink, RouterModule, Routes} from "@angular/router";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
-import { LandingPageComponent } from './landing-page/landing-page.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
-import { UserMainpageComponent } from './user-mainpage/user-mainpage.component';
-import {UserRegisterComponent} from "./user-register/user-register.component";
+import { UserMainpageComponent } from './components/user-mainpage/user-mainpage.component';
+import {UserRegisterComponent} from "./components/user-register/user-register.component";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatCardModule} from "@angular/material/card";
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatListModule} from "@angular/material/list";
+import {ExtendedModule, FlexModule} from "@angular/flex-layout";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -35,7 +40,8 @@ const appRoutes: Routes = [
     UserLoginComponent,
     LandingPageComponent,
     UserMainpageComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +59,12 @@ const appRoutes: Routes = [
     MatCheckboxModule,
     MatSnackBarModule,
     MatRadioModule,
-    MatCardModule
+    MatCardModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    ExtendedModule,
+    FlexModule
   ],
   providers: [RouterModule],
   bootstrap: [AppComponent]

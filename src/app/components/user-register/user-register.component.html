@@ -1,11 +1,11 @@
 <div class="img-box" class="left-side">
   <div class="container-login-left">
     <h1 class="login-form-title-left">
-      Log In to SurveyApp
+      Register Now <br> and Complete Surveys
     </h1>
     <div class="wrap-login-left">
                 <span class="login-logo-img">
-                    <img alt="survey" src='../../assets/images/survey-user-login.png' width="100%">
+                    <img alt="survey" src='../../../assets/images/survey-user-login.png' width="100%">
                 </span>
     </div>
   </div>
@@ -18,10 +18,10 @@
 </div>
 <div class="right-side">
   <div class="top-right-item">
-    <p class="topright">Don't have an account yet?</p>
-    <button class="topright" [routerLink]="['/register-user']" mat-stroked-button>Register</button>
+    <p class="topright">Already have an account?</p>
+    <button class="topright" [routerLink]="['/login-user']" mat-stroked-button>Log In</button>
   </div>
-    <div class="container-login">
+  <div class="container-login">
     <div class="wrap-login">
       <p class="login-form-title-right">
         Survey App
@@ -48,9 +48,21 @@
             Password is <strong>required</strong>
           </mat-error>
         </mat-form-field>
+        <label>Select the type of account:</label>
+        <br>
+        <mat-radio-group (click)="checkedUserType = true" formControlName="type" required>
+          <mat-radio-button value="user">User</mat-radio-button>
+          <mat-radio-button value="creator">Creator</mat-radio-button>
+        </mat-radio-group>
+        <div *ngIf="!checkedUserType">
+          <mat-card class="invalid">
+            <mat-icon class="warning-icon">error</mat-icon>
+            Please select a type for your user.
+          </mat-card>
+        </div>
       </form>
-      <span class="login-form-btn">
-              <button mat-raised-button class="login-button" (click)="login()">Log In</button>
+      <span class="register-form-btn">
+              <button mat-raised-button class="register-button" (click)="register()">Register</button>
       </span>
       <div *ngIf="!validCredentials">
         <mat-card class="invalid">

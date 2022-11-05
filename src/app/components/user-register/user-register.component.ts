@@ -6,6 +6,7 @@ import {User} from "../../models/user.model";
 import {UserRegisterDto} from "../../models/userRegisterDto.model";
 import {Router} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-user-login',
@@ -15,9 +16,8 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 export class UserRegisterComponent implements OnInit {
 
   public hide = true;
-  public signInForm: FormGroup | any ;
+  public signInForm: FormGroup | any;
   public validInput : boolean = true;
-  public hashPassword: string | undefined;
   public user: UserRegisterDto | undefined;
   public userService: UserService;
   public checkedUserType = true;
@@ -25,7 +25,8 @@ export class UserRegisterComponent implements OnInit {
 
   constructor(private router : Router,
               private usersService : UserService,
-              private snackBar : MatSnackBar) {
+              private snackBar : MatSnackBar,
+              private authService : AuthService) {
     this.userService = usersService;
   }
 
@@ -36,18 +37,11 @@ export class UserRegisterComponent implements OnInit {
       'type': new FormControl('', Validators.required)
     });
 
-    if(localStorage.getItem('token') != '' && localStorage.getItem('email') != '' && localStorage.getItem('isLoggedIn') == "true") {
-      this.router.navigate(['/home-user']);
-    }
+    this.authService.verifyUserConnection();
   }
 
   get emailInput() { return this.signInForm.get('email'); }
   get passwordInput() { return this.signInForm.get('password'); }
-
-  public generateRandomToken() {
-    const rand = Math.random().toString(36).substring(2);
-    return rand + rand;
-  }
 
   public register() : void {
 
@@ -60,16 +54,12 @@ export class UserRegisterComponent implements OnInit {
       this.validInput = false;
       return;
     } else {
-      this.hashPassword = sha256(this.signInForm.controls['password'].value);
-      //this.user = new UserAuthDto(this.signInForm.controls['email'].value, this.signInForm.controls['password'].value, "user") //TODO: after testing the second parameter will be replaced with this.hashPassword
       this.user = new UserRegisterDto( this.signInForm.controls['email'].value, this.signInForm.controls['password'].value, this.signInForm.controls['type'].value)
 
       this.userService.register(this.user).subscribe( {
         next: (response:User) => {
           this.user = response;
-          localStorage.setItem('isLoggedIn', "true");
-          localStorage.setItem('token', this.generateRandomToken());
-          this.router.navigate(['/home-user']);
+          this.authService.loginInit(this.signInForm.controls['email'].value);
           this.snackBar.open('Successfully created a new account', "OK", {duration: 2000})
         },
         error : () => this.validCredentials = false

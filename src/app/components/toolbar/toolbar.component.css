@@ -1,0 +1,21 @@
+.mat-drawer-container {
+  position: inherit;
+}
+
+.toolbar {
+  height: 7vh;
+  background-color: white;
+}
+
+.logout-button {
+  flex: 0 0 0% !important;
+}
+
+@media only screen and (min-width: 960px)
+{
+  .side-menu-button {
+    visibility: hidden;
+  }
+}
+
+
