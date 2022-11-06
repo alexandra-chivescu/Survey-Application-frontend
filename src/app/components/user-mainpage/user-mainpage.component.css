@@ -1,0 +1,45 @@
+.cards-per-row-txt {
+  margin-left: 3%;
+  margin-top: 4%;
+  margin-bottom: 1%;
+}
+
+.img-size-slider {
+  margin-left: 3%;
+}
+
+.client-card {
+  width: 80%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.header-image {
+  /*background-image: url('../../../assets/images/contact.png');*/
+  background-color: #005986;
+  background-size: cover;
+}
+
+.content {
+  padding: 16px;
+}
+
+.content > mat-card {
+  margin-bottom: 16px;
+}
+
+.action-buttton {
+  margin: 5px;
+  height: 50px;
+  width: 50px;
+}
+
+.active-survey {
+  color: #18a218;
+  font-weight: bolder;
+}
+
+.inactive-survey {
+  color: red;
+  font-weight: bolder;
+}

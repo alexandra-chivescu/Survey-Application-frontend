@@ -58,24 +58,34 @@
   "Surveys": [
     {
       "id": 1,
-      "title": "Survey 1",
+      "title": "Animals",
       "creator": "alechivescu@gmail.com",
-      "start_date": "11-05-2022",
-      "end_date": "14-05-2022"
+      "start_date": "11-03-2022",
+      "end_date": "11-05-2022"
     },
     {
       "id": 2,
-      "title": "Survey 2",
+      "title": "Food",
       "creator": "jchivescu@gmail.com",
       "start_date": "11-05-2022",
-      "end_date": "14-05-2022"
+      "end_date": "11-07-2022"
     },
     {
       "id": 3,
-      "title": "Survey 3",
+      "title": "Sports",
       "creator": "alema@gmail.com",
       "start_date": "11-05-2022",
-      "end_date": "14-05-2022"
+      "end_date": "11-10-2022"
     }
-  ]
+  ],
+  "Questions": [ {
+    "id" : 1,
+    "survey_id" : 1,
+    "question_title" : "What do you prefer?"
+  },
+    {
+      "id" : 2,
+      "survey_id" : 1,
+      "question_title" : "How many feet does a chicken have?"
+    },
 }

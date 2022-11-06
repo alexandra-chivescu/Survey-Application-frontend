@@ -6,7 +6,6 @@ export class User {
   public password : string;
   public type : string;
 
-
   constructor(user_id: number, email: string, password: string, type: string) {
     this.user_id = user_id;
     this.email = email;

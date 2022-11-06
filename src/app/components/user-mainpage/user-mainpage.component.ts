@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {AuthService} from "../../services/auth.service";
+import {UserService} from "../../services/user.service";
+import {Survey} from "../../models/survey.model";
 
 @Component({
   selector: 'app-user-mainpage',
@@ -8,15 +9,37 @@ import {AuthService} from "../../services/auth.service";
   styleUrls: ['./user-mainpage.component.css']
 })
 export class UserMainpageComponent implements OnInit {
+  public surveys : Survey[] | any;
+  public gridColumns: number | any;
 
   constructor( private router : Router,
-               private authService : AuthService) { }
+               private userService : UserService) { }
 
   ngOnInit(): void {
     if (localStorage.getItem('token') == '' || localStorage.getItem('email') == '' || localStorage.getItem('isLoggedIn') == "false") {
       this.router.navigate(['/login-user']);
     }
+    this.getSurveys();
+    this.gridColumns = 3;
   }
 
+  public getSurveys() : void {
+    this.userService.getSurveys().subscribe({
+        next : (response : Survey[]) =>
+        this.surveys = response,
+        error: (error) =>
+          alert(error.message)
+      }
+    )
+  }
+
+  public isActive(id : number) : boolean {
+      let date: string = this.surveys[id].end_date;
+      let [month, day, year] = date.split('-');
+      var convertedDate = new Date(+year, +month - 1, +day);
+      if(convertedDate.getTime() < Date.now())
+        return false;
+      return true;
+    }
 
 }

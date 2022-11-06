@@ -25,6 +25,7 @@ export class AuthService {
     localStorage.setItem('email', '');
     localStorage.setItem('isLoggedIn', 'false');
     this.router.navigate(['/home']);
+    window.location.reload();
   }
 
 }

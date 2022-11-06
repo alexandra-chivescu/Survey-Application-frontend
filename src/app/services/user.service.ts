@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {User} from "../models/user.model";
 import {Observable} from "rxjs";
 import {UserRegisterDto} from "../models/userRegisterDto.model";
+import {Survey} from "../models/survey.model";
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,10 @@ export class UserService {
 
   public login(userEmail : string, userPassword : string) {
     return this.http.get<User[]>("http://localhost:3000/Users?email=" + userEmail + "&password=" + userPassword);
+  }
+
+  public getSurveys() : Observable<Survey[]> {
+    return this.http.get<Survey[]>("http://localhost:3000/Surveys");
   }
 
 }
