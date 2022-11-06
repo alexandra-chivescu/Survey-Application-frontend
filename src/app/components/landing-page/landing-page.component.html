@@ -1,2 +1,16 @@
-<button [routerLink]="['/login-user']" mat-raised-button color="primary">Log In</button>
-<button [routerLink]="['/register-user']" mat-stroked-button color="primary">Register</button>
+<body>
+  <h1 class="title">SurveyApp</h1>
+  <div class="buttons-landingpage">
+    <button *ngIf="isConnected===false" [routerLink]="['/login-user']" mat-raised-button color="primary">Log In</button>
+    <button *ngIf="isConnected===false" [routerLink]="['/register-user']" mat-stroked-button color="primary">Register</button>
+    <button *ngIf="isConnected===true" (click)="logout()" mat-raised-button color="primary">Logout</button>
+    <button *ngIf="isConnected===true" [routerLink]="['/home-user']" mat-stroked-button color="primary">Home</button>
+  </div>
+  <header class="masthead">
+    <div class="container" id="writingplace">
+      <h2 class="masthead-heading">Welcome to the SurveyApp</h2>
+      <h1 class="masthead-subheading">SURVEY MAKER. ASK WITH STYLE.</h1>
+      <button [routerLink]="'/register-user'" class="btn-xl" mat-raised-button color="accent">Get started - it's free</button>
+    </div>
+  </header>
+</body>

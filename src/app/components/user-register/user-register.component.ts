@@ -37,7 +37,9 @@ export class UserRegisterComponent implements OnInit {
       'type': new FormControl('', Validators.required)
     });
 
-    this.authService.verifyUserConnection();
+    if(localStorage.getItem('token') != '' && localStorage.getItem('email') != '' && localStorage.getItem('isLoggedIn') == "true") {
+      this.router.navigate(['/home-user']);
+    }
   }
 
   get emailInput() { return this.signInForm.get('email'); }

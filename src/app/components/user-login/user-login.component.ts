@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../../services/user.service";
+import {sha256} from "js-sha256";
 import {User} from "../../models/user.model";
 import {Router} from "@angular/router";
 import {UserLoginDto} from "../../models/userLoginDto.model";
@@ -32,7 +33,9 @@ export class UserLoginComponent implements OnInit {
       'password': new FormControl('', [Validators.required, Validators.min(3)])
     });
 
-    this.authService.verifyUserConnection();
+    if (localStorage.getItem('token') != '' && localStorage.getItem('email') != '' && localStorage.getItem('isLoggedIn') == "true") {
+      this.router.navigate(['/home-user']);
+    }
   }
 
   get emailInput() {

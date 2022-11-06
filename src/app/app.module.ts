@@ -24,6 +24,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
 import {ExtendedModule, FlexModule} from "@angular/flex-layout";
+import {MatSliderModule} from "@angular/material/slider";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -64,7 +65,8 @@ const appRoutes: Routes = [
     MatSidenavModule,
     MatListModule,
     ExtendedModule,
-    FlexModule
+    FlexModule,
+    MatSliderModule
   ],
   providers: [RouterModule],
   bootstrap: [AppComponent]

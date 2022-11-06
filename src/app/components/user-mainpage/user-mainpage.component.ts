@@ -13,7 +13,9 @@ export class UserMainpageComponent implements OnInit {
                private authService : AuthService) { }
 
   ngOnInit(): void {
-    this.authService.verifyUserConnection();
+    if (localStorage.getItem('token') == '' || localStorage.getItem('email') == '' || localStorage.getItem('isLoggedIn') == "false") {
+      this.router.navigate(['/login-user']);
+    }
   }
 
 

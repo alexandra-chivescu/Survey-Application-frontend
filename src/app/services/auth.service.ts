@@ -17,7 +17,6 @@ export class AuthService {
     localStorage.setItem('isLoggedIn', "true");
     localStorage.setItem('email', email);
     localStorage.setItem('token', this.generateRandomToken());
-
     this.router.navigate(['/home-user']);
   }
 
@@ -27,14 +26,5 @@ export class AuthService {
     localStorage.setItem('isLoggedIn', 'false');
     this.router.navigate(['/home']);
   }
-
-  public verifyUserConnection() {
-    if (localStorage.getItem('token') != '' && localStorage.getItem('email') != '' && localStorage.getItem('isLoggedIn') == "true") {
-      this.router.navigate(['/home-user']);
-    } else {
-      this.router.navigate(['/login-user']);
-    }
-  }
-
 
 }
