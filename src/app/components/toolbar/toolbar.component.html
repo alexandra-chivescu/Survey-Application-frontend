@@ -3,12 +3,12 @@
     <button mat-icon-button class="side-menu-button">
       <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
     </button>
-    <span>{{email}}</span>
+    <span>{{username}}</span>
     <span class="example-spacer"></span>
     <div fxShow="true" fxHide.lt-md="true" fxFlex fxLayout>
       <div fxFlex>
         <a [routerLink]="'/home-user'" mat-button>All Surveys</a>
-        <a [routerLink]="'/my-surveys'" mat-button>My Surveys</a>
+        <a *ngIf="users[0].type=='creator'" [routerLink]="'/home-user'" mat-button>Create</a>
       </div>
 
       <div fxFlex fxLayoutAlign="flex-end">
@@ -22,9 +22,9 @@
   <mat-sidenav-container class="sidenav-cont">
     <mat-sidenav #sidenav>
       <mat-nav-list>
-        <a mat-list-item [routerLink]="'/clients-admin'">All Surveys</a>
-        <a mat-list-item [routerLink]="'/atm-funds'">My Surveys</a>
-        <a mat-list-item (click)="sidenav.toggle()" href="">Logout</a>
+        <a [routerLink]="'/home-user'" mat-button>All Surveys</a>
+        <a *ngIf="users[0].type=='creator'" [routerLink]="'/home-user'" mat-button>Create</a>
+        <a mat-list-item (click)="logout()" href="">Logout</a>
 
       </mat-nav-list>
     </mat-sidenav>

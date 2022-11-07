@@ -25,6 +25,7 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
 import {ExtendedModule, FlexModule} from "@angular/flex-layout";
 import {MatSliderModule} from "@angular/material/slider";
+import { CompleteSurveyComponent } from './components/complete-survey/complete-survey.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
   {path: 'login-user', component: UserLoginComponent},
   {path: 'register-user', component: UserRegisterComponent},
   {path: 'home-user', component: UserMainpageComponent},
+  {path: 'complete-survey', component: CompleteSurveyComponent},
   {path: "**", redirectTo: '/home', pathMatch: 'full'}
 ];
 
@@ -42,7 +44,8 @@ const appRoutes: Routes = [
     LandingPageComponent,
     UserMainpageComponent,
     UserRegisterComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    CompleteSurveyComponent
   ],
   imports: [
     BrowserModule,

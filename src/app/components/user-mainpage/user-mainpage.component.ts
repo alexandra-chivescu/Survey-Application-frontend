@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {UserService} from "../../services/user.service";
 import {Survey} from "../../models/survey.model";
+import {DataService} from "../../services/data.service";
 
 @Component({
   selector: 'app-user-mainpage',
@@ -11,9 +12,12 @@ import {Survey} from "../../models/survey.model";
 export class UserMainpageComponent implements OnInit {
   public surveys : Survey[] | any;
   public gridColumns: number | any;
+  public surveyId : number | any;
+
 
   constructor( private router : Router,
-               private userService : UserService) { }
+               private userService : UserService,
+               private data : DataService) { }
 
   ngOnInit(): void {
     if (localStorage.getItem('token') == '' || localStorage.getItem('email') == '' || localStorage.getItem('isLoggedIn') == "false") {
@@ -21,6 +25,8 @@ export class UserMainpageComponent implements OnInit {
     }
     this.getSurveys();
     this.gridColumns = 3;
+
+    this.data.currentMessage.subscribe(message => this.surveyId = message);
   }
 
   public getSurveys() : void {
@@ -40,6 +46,10 @@ export class UserMainpageComponent implements OnInit {
       if(convertedDate.getTime() < Date.now())
         return false;
       return true;
+    }
+
+    public newSurveyId(surveyId : number) {
+      this.data.changeMessage(surveyId);
     }
 
 }

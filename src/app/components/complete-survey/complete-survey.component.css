@@ -12,10 +12,13 @@
   width: 80%;
   display: inline-block;
   vertical-align: middle;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%;
+  background-color: beige;
 }
 
 .header-image {
-  /*background-image: url('../../../assets/images/contact.png');*/
   background-color: #005986;
   background-size: cover;
 }
@@ -34,12 +37,14 @@
   width: 50px;
 }
 
-.active-survey {
-  color: #18a218;
-  font-weight: bolder;
+::ng-deep .mat-card-header-text  {
+  align-self: self-end;
 }
 
-.inactive-survey {
-  color: red;
-  font-weight: bolder;
+.title {
+  font-size: xx-large;
+}
+
+.question-title {
+  font-size: x-large;
 }

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
+import {Survey} from "../../models/survey.model";
+import {UserService} from "../../services/user.service";
+import {User} from "../../models/user.model";
 
 @Component({
   selector: 'app-toolbar',
@@ -9,17 +12,31 @@ import {AuthService} from "../../services/auth.service";
 })
 export class ToolbarComponent implements OnInit {
 
-  public email : string | any;
+  public username : string | any;
+  public users : User[] | any;
 
-  constructor(private authService : AuthService) { }
+  constructor(private authService : AuthService,
+              private userService : UserService) { }
 
   ngOnInit(): void {
+    this.getUserByEmail();
     // @ts-ignore
-    this.email = localStorage.getItem('email').substring(0, localStorage.getItem('email').indexOf('@'));
+    this.username = localStorage.getItem('email').substring(0, localStorage.getItem('email').indexOf('@'));
   }
 
   public logout () {
     this.authService.logout();
   }
+  public getUserByEmail() : void {
+    // @ts-ignore
+    this.userService.getUserByEmail(localStorage.getItem('email')).subscribe({
+        next : (response : User[]) =>
+          this.users = response,
+        error: (error) =>
+          alert(error.message)
+      }
+    )
+  }
+
 
 }

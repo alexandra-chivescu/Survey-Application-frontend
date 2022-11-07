@@ -1,0 +1,21 @@
+<app-toolbar></app-toolbar>
+<mat-card class="survey-card">
+  <mat-card-header>
+    <div mat-card-avatar class="header-image"></div>
+    <mat-card-title class="title">{{surveys[0].title}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <div *ngFor="let question of questions; let i = index">
+        <p class="question-title">{{i+1}}. {{question.title}}</p>
+        <div *ngFor="let answer of answers" >
+          <p *ngIf="question.id == answer.question_id">{{answer.answer}}</p>
+        </div>
+      </div>
+    </mat-list>
+  </mat-card-content>
+  <mat-card-actions>
+    <button [routerLink]="['/home-user']" mat-stroked-button color="primary">Cancel</button>
+    <button [routerLink]="['/home-user']" mat-raised-button color="primary">Submit</button>
+  </mat-card-actions>
+</mat-card>
