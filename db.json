@@ -4,7 +4,7 @@
       "id": 0,
       "email": "alechivescu@gmail.com",
       "password": "1234",
-      "type": "user"
+      "type": "creator"
     },
     {
       "id": 1,
@@ -125,174 +125,248 @@
       "id": 0,
       "question_id": 0,
       "answer": "Dogs",
-      "response": 0
+      "noResponses": 3
     },
     {
       "id": 1,
       "question_id": 0,
       "answer": "Cats",
-      "response": 0
+      "noResponses": 0
     },
     {
       "id": 2,
       "question_id": 0,
       "answer": "Rabbits",
-      "response": 0
+      "noResponses": 0
     },
     {
       "id": 3,
       "question_id": 1,
       "answer": "2",
-      "response": 0
+      "noResponses": 2
     },
     {
       "id": 4,
       "question_id": 1,
       "answer": "4",
-      "response": 0
+      "noResponses": 1
     },
     {
       "id": 5,
       "question_id": 1,
       "answer": "3",
-      "response": 0
+      "noResponses": 0
     },
     {
       "id": 6,
       "question_id": 2,
       "answer": "Bulldog",
-      "response": 0
+      "noResponses": 1
     },
     {
       "id": 7,
       "question_id": 2,
       "answer": "Golden Retriever",
-      "response": 0
+      "noResponses": 2
     },
     {
       "id": 8,
       "question_id": 2,
       "answer": "Siberian Husky",
-      "response": 0
+      "noResponses": 0
     },
     {
       "id": 9,
       "question_id": 2,
       "answer": "French Bulldog",
-      "response": 0
+      "noResponses": 0
     },
     {
       "id": 10,
       "question_id": 3,
       "answer": "Salad",
-      "response": 0
+      "noResponses": 0
     },
     {
       "id": 11,
       "question_id": 3,
       "answer": "Hamburger",
-      "response": 0
+      "noResponses": 0
     },
     {
       "id": 12,
       "question_id": 3,
       "answer": "French fries",
-      "response": 0
+      "noResponses": 0
     },
     {
       "id": 13,
       "question_id": 4,
       "answer": "Yes",
-      "response": 0
+      "noResponses": 0
     },
     {
       "id": 14,
       "question_id": 4,
       "answer": "No",
-      "response": 0
+      "noResponses": 0
     },
     {
       "id": 15,
       "question_id": 5,
       "answer": "Squash",
-      "response": 0
+      "noResponses": 0
     },
     {
       "id": 16,
       "question_id": 5,
       "answer": "Tenis",
-      "response": 0
+      "noResponses": 0
     },
     {
       "id": 17,
       "question_id": 5,
       "answer": "Football",
-      "response": 0
+      "noResponses": 0
     },
     {
       "id": 18,
       "question_id": 5,
       "answer": "Basketball",
-      "response": 0
+      "noResponses": 0
     },
     {
       "id": 19,
       "question_id": 6,
       "answer": "Tennis player",
-      "response": 0
+      "noResponses": 0
     },
     {
       "id": 20,
       "question_id": 6,
       "answer": "Squash player",
-      "response": 0
+      "noResponses": 0
     },
     {
       "id": 21,
       "question_id": 7,
       "answer": "40",
-      "response": 0
+      "noResponses": 0
     },
     {
       "id": 22,
       "question_id": 7,
       "answer": "19",
-      "response": 0
+      "noResponses": 0
     },
     {
       "id": 23,
       "question_id": 7,
       "answer": "20",
-      "response": 0
+      "noResponses": 0
     },
     {
       "id": 24,
       "question_id": 7,
       "answer": "25",
-      "response": 0
+      "noResponses": 0
     }
   ],
   "CompletedSurvey": [
     {
       "id": 0,
-      "user_id": 1,
-      "survey_id": 0,
-      "question_id": 0,
-      "answer_id": 0
+      "user_id": 4,
+      "survey_id": 0
     },
     {
       "id": 1,
-      "user_id": 1,
-      "survey_id": 0,
-      "question_id": 1,
-      "answer_id": 0
+      "user_id": 4,
+      "survey_id": 0
     },
     {
       "id": 2,
-      "user_id": 1,
+      "user_id": 4,
+      "survey_id": 0
+    },
+    {
+      "user_id": 0,
       "survey_id": 0,
-      "question_id": 2,
-      "answer_id": 1
+      "id": 3
+    },
+    {
+      "user_id": 0,
+      "survey_id": 0,
+      "id": 4
+    },
+    {
+      "user_id": 0,
+      "survey_id": 0,
+      "id": 5
+    },
+    {
+      "user_id": 0,
+      "survey_id": 0,
+      "id": 6
+    },
+    {
+      "user_id": 0,
+      "survey_id": 0,
+      "id": 7
+    },
+    {
+      "user_id": 0,
+      "survey_id": 0,
+      "id": 8
+    },
+    {
+      "user_id": 0,
+      "survey_id": 0,
+      "id": 9
+    },
+    {
+      "user_id": 0,
+      "survey_id": 0,
+      "id": 10
+    },
+    {
+      "user_id": 0,
+      "survey_id": 0,
+      "id": 11
+    },
+    {
+      "user_id": 0,
+      "survey_id": 0,
+      "id": 12
+    },
+    {
+      "user_id": 0,
+      "survey_id": 0,
+      "id": 13
+    },
+    {
+      "user_id": 0,
+      "survey_id": 0,
+      "id": 14
+    },
+    {
+      "user_id": 0,
+      "survey_id": 0,
+      "id": 15
+    },
+    {
+      "user_id": 0,
+      "survey_id": 0,
+      "id": 16
+    },
+    {
+      "user_id": 0,
+      "survey_id": 0,
+      "id": 17
+    },
+    {
+      "user_id": 0,
+      "survey_id": 0,
+      "id": 18
     }
   ]
 }

@@ -6,6 +6,8 @@ import {UserRegisterDto} from "../models/userRegisterDto.model";
 import {Survey} from "../models/survey.model";
 import {Question} from "../models/question.model";
 import {Answer} from "../models/answer.model";
+import {CompletedSurveyDto} from "../models/completedSurveyDto.model";
+import {CompletedSurvey} from "../models/completedSurvey.model";
 
 @Injectable({
   providedIn: 'root'
@@ -43,6 +45,16 @@ export class UserService {
     return this.http.get<Answer[]>("http://localhost:3000/Answers");
   }
 
+  public modifyAnswer(modifiedAnswer : Answer) : Observable<Answer> {
+    return this.http.put<Answer>("http://localhost:3000/Answers/" + modifiedAnswer.id, modifiedAnswer);
+  }
 
+  public completedSurvey(completedSurvey: CompletedSurveyDto) : Observable<CompletedSurveyDto> {
+    return this.http.post<CompletedSurveyDto>("http://localhost:3000/CompletedSurvey", completedSurvey);
+  }
+
+  public getCompletedSurveys() : Observable<CompletedSurvey[]> {
+    return this.http.get<CompletedSurvey[]>("http://localhost:3000/CompletedSurvey");
+  }
 
 }

@@ -15,7 +15,7 @@
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 5%;
-  background-color: beige;
+  background-color: #f6f2f5;
 }
 
 .header-image {
@@ -47,4 +47,9 @@
 
 .question-title {
   font-size: x-large;
+  padding: 10px;
+}
+
+.answer {
+  padding: 4px;
 }

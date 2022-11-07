@@ -5,17 +5,21 @@
     <mat-card-title class="title">{{surveys[0].title}}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <mat-list>
-      <div *ngFor="let question of questions; let i = index">
-        <p class="question-title">{{i+1}}. {{question.title}}</p>
-        <div *ngFor="let answer of answers" >
-          <p *ngIf="question.id == answer.question_id">{{answer.answer}}</p>
+    <form class="login-form" [formGroup]="completeSurveyForm">
+      <mat-list>
+        <div *ngFor="let question of questions; let i = index">
+          <p class="question-title">{{i + 1}}. {{question.title}}</p>
+          <mat-radio-group formControlName="answer" required>
+          <div *ngFor="let answer of answers">
+            <mat-radio-button (change)="addResponse(answer.id, question.id)" class="answer" value="{{answer.id}}" *ngIf="question.id == answer.question_id">{{answer.answer}}</mat-radio-button>
+          </div>
+          </mat-radio-group>
         </div>
-      </div>
-    </mat-list>
+      </mat-list>
+    </form>
   </mat-card-content>
   <mat-card-actions>
     <button [routerLink]="['/home-user']" mat-stroked-button color="primary">Cancel</button>
-    <button [routerLink]="['/home-user']" mat-raised-button color="primary">Submit</button>
+    <button (click)="saveCompletedSurvey()" [routerLink]="['/home-user']" mat-raised-button color="primary">Submit</button>
   </mat-card-actions>
 </mat-card>

@@ -1,5 +1,3 @@
-import {Optional} from "@angular/core";
-
 export class User {
   public user_id : number;
   public email : string;

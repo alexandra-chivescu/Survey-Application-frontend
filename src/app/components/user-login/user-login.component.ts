@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../../services/user.service";
-import {sha256} from "js-sha256";
 import {User} from "../../models/user.model";
 import {Router} from "@angular/router";
 import {UserLoginDto} from "../../models/userLoginDto.model";
