@@ -26,6 +26,7 @@ import {MatListModule} from "@angular/material/list";
 import {ExtendedModule, FlexModule} from "@angular/flex-layout";
 import {MatSliderModule} from "@angular/material/slider";
 import { CompleteSurveyComponent } from './components/complete-survey/complete-survey.component';
+import { CreateSurveyComponent } from './components/create-survey/create-survey.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
   {path: 'register-user', component: UserRegisterComponent},
   {path: 'home-user', component: UserMainpageComponent},
   {path: 'complete-survey', component: CompleteSurveyComponent},
+  {path: 'create-survey', component: CreateSurveyComponent},
   {path: "**", redirectTo: '/home', pathMatch: 'full'}
 ];
 
@@ -45,7 +47,8 @@ const appRoutes: Routes = [
     UserMainpageComponent,
     UserRegisterComponent,
     ToolbarComponent,
-    CompleteSurveyComponent
+    CompleteSurveyComponent,
+    CreateSurveyComponent
   ],
   imports: [
     BrowserModule,

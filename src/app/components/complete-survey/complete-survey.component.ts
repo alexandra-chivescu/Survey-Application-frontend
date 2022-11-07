@@ -8,6 +8,10 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {CompletedSurveyDto} from "../../models/completedSurveyDto.model";
 import {User} from "../../models/user.model";
 
+function delay(ms: number) {
+  return new Promise( resolve => setTimeout(resolve, ms) );
+}
+
 @Component({
   selector: 'app-complete-survey',
   templateUrl: './complete-survey.component.html',
@@ -92,7 +96,6 @@ export class CompleteSurveyComponent implements OnInit {
       {
         next: (response: Answer) => {
           this.modifiedAnswer = response;
-          console.log(this.modifiedAnswer.id + " -> " + this.modifiedAnswer.noResponses);
           },
         error: (error) =>
           alert(error.message)
@@ -115,12 +118,13 @@ export class CompleteSurveyComponent implements OnInit {
 
       this.userService.getAnswers().subscribe(
         {
-          next: (response: Answer[]) => {
+          next: async (response: Answer[]) => {
             this.allAnswers = response;
             for (var i = 0; i < this.answers.length; i++) {
               this.allAnswers[i].noResponses = this.allAnswers[i].noResponses + this.answers[i].noResponses;
-              //metoda care duce la apiul unde inlocuiesc datele cu cele updatate dupa adunarea numarului de raspunsuri
+              //metoda care duce la api-ul unde inlocuiesc datele cu cele updatate dupa adunarea numarului de raspunsuri
               this.modifyAnswer(i, this.allAnswers[i].question_id, this.allAnswers[i].answer, this.allAnswers[i].noResponses);
+              await delay(100)
             }
           },
           error: (error) =>
