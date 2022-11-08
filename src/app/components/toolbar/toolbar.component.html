@@ -1,4 +1,4 @@
-<div class="toolbar">
+<div class="toolbar" *ngIf = "this.users">
   <mat-toolbar>
     <button mat-icon-button class="side-menu-button">
       <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
@@ -8,7 +8,7 @@
     <div fxShow="true" fxHide.lt-md="true" fxFlex fxLayout>
       <div fxFlex>
         <a [routerLink]="'/home-user'" mat-button>All Surveys</a>
-        <a *ngIf="users[0].type=='creator'" [routerLink]="'/home-user'" mat-button>Create</a>
+        <a *ngIf="this.users[0].type=='creator'" [routerLink]="'/create-survey'" mat-button>Create</a>
       </div>
 
       <div fxFlex fxLayoutAlign="flex-end">
@@ -23,7 +23,7 @@
     <mat-sidenav #sidenav>
       <mat-nav-list>
         <a [routerLink]="'/home-user'" mat-button>All Surveys</a>
-        <a *ngIf="users[0].type=='creator'" [routerLink]="'/create-survey'" mat-button>Create</a>
+        <a *ngIf="this.users[0].type=='creator'" [routerLink]="'/create-survey'" mat-button>Create</a>
         <a mat-list-item (click)="logout()" href="">Logout</a>
 
       </mat-nav-list>

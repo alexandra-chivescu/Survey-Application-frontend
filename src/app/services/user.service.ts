@@ -45,6 +45,10 @@ export class UserService {
     return this.http.get<Answer[]>("http://localhost:3000/Answers");
   }
 
+  public getAnswersByQuestionId(questionId : number) : Observable<Answer[]> {
+    return this.http.get<Answer[]>("http://localhost:3000/Answers?question_id="+questionId);
+  }
+
   public modifyAnswer(modifiedAnswer : Answer) : Observable<Answer> {
     return this.http.put<Answer>("http://localhost:3000/Answers/" + modifiedAnswer.id, modifiedAnswer);
   }
@@ -56,5 +60,9 @@ export class UserService {
   public getCompletedSurveys() : Observable<CompletedSurvey[]> {
     return this.http.get<CompletedSurvey[]>("http://localhost:3000/CompletedSurvey");
   }
+  public getCompletedSurveyByUserIdAndSurveyId(userId : number, surveyId : number) : Observable<CompletedSurvey[]> {
+    return this.http.get<CompletedSurvey[]>("http://localhost:3000/CompletedSurvey?survey_id="+surveyId+"&user_id="+userId);
+  }
+
 
 }

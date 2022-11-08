@@ -73,7 +73,7 @@
     {
       "id": 2,
       "title": "Sports",
-      "creator": "alema@gmail.com",
+      "creator": "alechivescu@gmail.com",
       "start_date": "11-05-2022",
       "end_date": "11-10-2022"
     }
@@ -131,19 +131,19 @@
       "id": 1,
       "question_id": 0,
       "answer": "Cats",
-      "noResponses": 0
+      "noResponses": 2
     },
     {
       "id": 2,
       "question_id": 0,
       "answer": "Rabbits",
-      "noResponses": 1
+      "noResponses": 0
     },
     {
       "id": 3,
       "question_id": 1,
       "answer": "2",
-      "noResponses": 1
+      "noResponses": 2
     },
     {
       "id": 4,
@@ -292,6 +292,11 @@
       "user_id": 0,
       "survey_id": 0,
       "id": 3
+    },
+    {
+      "user_id": 0,
+      "survey_id": 2,
+      "id": 4
     }
   ]
 }

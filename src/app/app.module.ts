@@ -27,6 +27,11 @@ import {ExtendedModule, FlexModule} from "@angular/flex-layout";
 import {MatSliderModule} from "@angular/material/slider";
 import { CompleteSurveyComponent } from './components/complete-survey/complete-survey.component';
 import { CreateSurveyComponent } from './components/create-survey/create-survey.component';
+import {NgxChartsModule} from "@swimlane/ngx-charts";
+import { ResultsSurveyComponent } from './components/results-survey/results-survey.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -48,7 +53,8 @@ const appRoutes: Routes = [
     UserRegisterComponent,
     ToolbarComponent,
     CompleteSurveyComponent,
-    CreateSurveyComponent
+    CreateSurveyComponent,
+    ResultsSurveyComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +78,11 @@ const appRoutes: Routes = [
     MatListModule,
     ExtendedModule,
     FlexModule,
-    MatSliderModule
+    MatSliderModule,
+    NgxChartsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatGridListModule
   ],
   providers: [RouterModule],
   bootstrap: [AppComponent]

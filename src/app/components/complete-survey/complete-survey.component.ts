@@ -28,6 +28,7 @@ export class CompleteSurveyComponent implements OnInit {
   public user: User | any;
   public allAnswers: Answer[] | any;
   public modifiedAnswer: Answer | any;
+  public noOfAnswersGiven : number = 0;
 
 
   constructor(private data: DataService,
@@ -96,7 +97,7 @@ export class CompleteSurveyComponent implements OnInit {
       {
         next: (response: Answer) => {
           this.modifiedAnswer = response;
-          },
+        },
         error: (error) =>
           alert(error.message)
       }
@@ -105,7 +106,6 @@ export class CompleteSurveyComponent implements OnInit {
 
   public saveCompletedSurvey(): void {
     if (this.completeSurveyForm.invalid) {
-      return;
     } else {
       this.completedSurvey = new CompletedSurveyDto(this.users[0].id, this.surveyId);
 
@@ -134,7 +134,6 @@ export class CompleteSurveyComponent implements OnInit {
 
     }
   }
-
 
   public addResponse(answerId: number, questionId: number) {
     for (let i = 0; i < this.answers.length; i++) {

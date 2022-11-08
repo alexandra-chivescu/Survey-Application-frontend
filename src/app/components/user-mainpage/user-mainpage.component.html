@@ -2,13 +2,14 @@
 <p class="cards-per-row-txt"><b>Select number of surveys per row:</b> </p>
 <mat-slider class="img-size-slider" [max]="6" [min]="3" [(ngModel)]="gridColumns" [thumbLabel]="true"></mat-slider>
 <br>
-<div class="content">
+<div class="content" *ngIf="this.users && this.surveys">
   <div fxLayout="row wrap" fxLayoutGap="16px grid">
-    <div [fxFlex]="(100/gridColumns) + '%'" fxFlex.xs="100%" fxFlex.sm="33%" fxFlexAlign="stretch" *ngFor = "let survey of surveys; let i = index ">
+    <div [fxFlex]="(100/gridColumns) + '%'" fxFlex.xs="100%" fxFlex.sm="33%" fxFlexAlign="stretch" *ngFor = "let survey of surveys; let i = index">
       <mat-card class="survey-card">
         <mat-card-header>
           <div mat-card-avatar class="header-image"></div>
           <mat-card-title>{{survey.title}}</mat-card-title>
+          <button *ngIf="verifyCreator(survey.id)" [routerLink]="['/results-survey']"  mat-stroked-button color="primary"><mat-icon>edit</mat-icon></button>
         </mat-card-header>
         <mat-card-content>
           <mat-list>
@@ -22,8 +23,8 @@
           </mat-list>
         </mat-card-content>
         <mat-card-actions>
-          <button [routerLink]="['/complete-survey']" *ngIf="isActive(i)" (click)="newSurveyId(i)" mat-raised-button color="primary">Complete</button>
-          <button [routerLink]="['/results']" mat-stroked-button color="primary">Show results</button>
+          <button [routerLink]="['/complete-survey']" *ngIf="isActive(i) && !completedSurveys[i]" (click)="newSurveyId(i)" mat-raised-button color="primary">Complete</button>
+          <button [routerLink]="['/results-survey']"  mat-stroked-button color="primary">Show results</button>
         </mat-card-actions>
       </mat-card>
     </div>

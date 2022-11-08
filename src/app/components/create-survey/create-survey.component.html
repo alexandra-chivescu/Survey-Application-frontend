@@ -1,1 +1,44 @@
-<p>create-survey works!</p>
+<app-toolbar></app-toolbar>
+  <mat-card class="survey-card">
+    <form class="new-survey-form" [formGroup]="NewSurveyGeneralDetails">
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Survey Title</mat-label>
+        <input type="surveyTitle" matInput formControlName="surveyTitle" required>
+        <mat-hint *ngIf="!titleInput.value">Enter survey title</mat-hint>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Choose a start date</mat-label>
+        <input formControlName="startDate" matInput [matDatepicker]="picker" required>
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Choose end date</mat-label>
+        <input formControlName="startDate" matInput [matDatepicker]="picker2" required>
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+      <br>
+      <br>
+      <mat-divider></mat-divider>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Question</mat-label>
+        <input matInput formControlName="question" required>
+        <mat-hint *ngIf="!titleInput.value">Enter question for survey</mat-hint>
+      </mat-form-field>
+      <div *ngFor="let valueQuestion of valuesQuestions; let i = index">
+        <input id="question" formControlName="question" type="text" >
+        <button (click)="removeValueQuestion(i)">Remove</button>
+      </div>
+      <button (click)="addValueQuestion()">ADD</button>
+      <div *ngFor="let valueQuestion of valuesQuestions" >
+        {{valueQuestion}}
+      </div>
+    </form>
+  </mat-card>
