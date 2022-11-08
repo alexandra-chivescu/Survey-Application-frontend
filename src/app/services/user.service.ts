@@ -64,5 +64,8 @@ export class UserService {
     return this.http.get<CompletedSurvey[]>("http://localhost:3000/CompletedSurvey?survey_id="+surveyId+"&user_id="+userId);
   }
 
+  public changeEndDateForSurvey(updatedSurvey : Survey) : Observable<Survey> {
+    return this.http.put<Survey>("http://localhost:3000/Surveys/" + updatedSurvey.id, updatedSurvey);
+  }
 
 }

@@ -1,0 +1,17 @@
+<div>
+  <h1>Edit Survey details</h1>
+  <mat-dialog-content class="save-new-client-form" [formGroup]="editSurveyForm">
+    <mat-form-field class="input-field" appearance="outline">
+      <mat-label>Choose a new end date for the survey</mat-label>
+      <input formControlName="newEndDate" matInput [matDatepicker]="picker" datepickerFormat="MM-DD-YYYY" required>
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-stroked-button color="primary" class="add-client-button" (click)="closeDialog()">Cancel</button>
+    <button mat-raised-button color="primary" class="add-client-button" (click)="changeEndDate()">Save</button>
+  </mat-dialog-actions>
+</div>
+

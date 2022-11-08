@@ -32,6 +32,8 @@ import { ResultsSurveyComponent } from './components/results-survey/results-surv
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatGridListModule} from "@angular/material/grid-list";
+import { EditDialogComponent } from './components/edit-dialog/edit-dialog.component';
+import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -41,7 +43,7 @@ const appRoutes: Routes = [
   {path: 'home-user', component: UserMainpageComponent},
   {path: 'complete-survey', component: CompleteSurveyComponent},
   {path: 'create-survey', component: CreateSurveyComponent},
-  {path: "**", redirectTo: '/home', pathMatch: 'full'}
+  {path: 'home-user', component: EditDialogComponent}
 ];
 
 @NgModule({
@@ -54,7 +56,8 @@ const appRoutes: Routes = [
     ToolbarComponent,
     CompleteSurveyComponent,
     CreateSurveyComponent,
-    ResultsSurveyComponent
+    ResultsSurveyComponent,
+    EditDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +85,8 @@ const appRoutes: Routes = [
     NgxChartsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDialogModule
   ],
   providers: [RouterModule],
   bootstrap: [AppComponent]

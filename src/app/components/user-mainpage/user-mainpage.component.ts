@@ -6,6 +6,8 @@ import {DataService} from "../../services/data.service";
 import {User} from "../../models/user.model";
 import {CompletedSurvey} from "../../models/completedSurvey.model";
 import {AuthService} from "../../services/auth.service";
+import {EditDialogComponent} from "../edit-dialog/edit-dialog.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-user-mainpage',
@@ -18,13 +20,14 @@ export class UserMainpageComponent implements OnInit {
   public surveyId: number | any;
   public completedSurveys: [] | any = [];
   public users: User[] | any;
-  public username : string | any;
-  public isCreator : boolean | any;
+  public username: string | any;
+  public isCreator: boolean | any;
 
 
   constructor(private router: Router,
               private userService: UserService,
-              private data: DataService) {
+              private data: DataService,
+              private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -49,10 +52,21 @@ export class UserMainpageComponent implements OnInit {
     )
   }
 
+  public formatDate(date : string) : Date {
+  date = date.substring(0, 10);
+  let [year, month, day] = date.split('-');
+  const dateTypeDate= new Date(+year, +month - 1, +day);
+  return dateTypeDate;
+}
+
   public getSurveys(): void {
     this.userService.getSurveys().subscribe({
         next: (response: Survey[]) => {
           this.surveys = response;
+          for (let i = 0; i < this.surveys.length; i++) {
+            this.surveys[i].start_date = this.formatDate(this.surveys[i].start_date);
+            this.surveys[i].end_date = this.formatDate(this.surveys[i].end_date);
+          }
           this.checkIfSurveysWereCompletedByCurrentUser();
         },
         error: (error) =>
@@ -75,10 +89,7 @@ export class UserMainpageComponent implements OnInit {
   }
 
   public isActive(id: number): boolean {
-    let date: string = this.surveys[id].end_date;
-    let [month, day, year] = date.split('-');
-    var convertedDate = new Date(+year, +month - 1, +day);
-    if (convertedDate.getTime() < Date.now())
+    if (this.surveys[id].end_date < Date.now())
       return false;
     return true;
   }
@@ -87,9 +98,28 @@ export class UserMainpageComponent implements OnInit {
     this.data.changeMessage(surveyId);
   }
 
-  public verifyCreator(surveyId : number) : boolean {
+  public verifyCreator(surveyId: number): boolean {
     this.isCreator = localStorage.getItem('email') === this.surveys[surveyId].creator;
     return this.isCreator;
+  }
+
+  openDialog(surveyId: number): void {
+    const dialogRef = this.dialog.open(EditDialogComponent, {
+      width: '500px',
+      height: '250px',
+      data: {
+          id: surveyId,
+          title: this.surveys[surveyId].title,
+          creator: this.surveys[surveyId].creator,
+          start_date: this.surveys[surveyId].start_date,
+          end_date: this.surveys[surveyId].end_date
+      }
+    }).afterClosed()
+      .subscribe((shouldReload: boolean) => {
+        dialogRef.unsubscribe();
+
+        if (shouldReload) window.location.reload();
+      });
   }
 
 }

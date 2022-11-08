@@ -27,18 +27,23 @@
       <br>
       <mat-divider></mat-divider>
 
-      <mat-form-field appearance="legacy">
+      <mat-form-field appearance="legacy" *ngFor="let valueQuestion of valuesQuestions; let i = index">
         <mat-label>Question</mat-label>
         <input matInput formControlName="question" required>
         <mat-hint *ngIf="!titleInput.value">Enter question for survey</mat-hint>
       </mat-form-field>
-      <div *ngFor="let valueQuestion of valuesQuestions; let i = index">
-        <input id="question" formControlName="question" type="text" >
-        <button (click)="removeValueQuestion(i)">Remove</button>
-      </div>
       <button (click)="addValueQuestion()">ADD</button>
-      <div *ngFor="let valueQuestion of valuesQuestions" >
-        {{valueQuestion}}
+
+
+      <div *ngFor="let valueQuestion of valuesQuestions">
+
       </div>
+<!--      <div *ngFor="let valueQuestion of valuesQuestions; let i = index">-->
+<!--        <input id="question" formControlName="question" type="text" >-->
+<!--        <button (click)="removeValueQuestion(i)">Remove</button>-->
+<!--      </div>-->
+<!--      <div *ngFor="let valueQuestion of valuesQuestions" >-->
+<!--        {{valueQuestion}}-->
+<!--      </div>-->
     </form>
   </mat-card>
