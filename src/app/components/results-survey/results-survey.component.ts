@@ -59,6 +59,11 @@ export class ResultsSurveyComponent implements OnInit {
   }
 
   generateAnswers(answer: Answer): string {
-    return answer.answer + " -> " + answer.noResponses + " responses";
+    let allVotesPerAnswer = this.allAnswers
+      .filter(currentAnswer => currentAnswer.question_id === answer.question_id)
+      .map(value => value.noResponses)
+      .reduce((previousValue, currentValue) => previousValue + currentValue);
+    console.log(allVotesPerAnswer);
+    return answer.answer + " -> " + answer.noResponses + " responses (" + (answer.noResponses/allVotesPerAnswer * 100) + "% )";
   }
 }
