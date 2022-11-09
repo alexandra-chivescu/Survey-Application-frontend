@@ -48,7 +48,7 @@ export class CompleteSurveyComponent implements OnInit {
   }
 
   public getQuestions(): void {
-    this.userService.getQuestion(this.surveyId).subscribe({
+    this.userService.getQuestionsBySurveyId(this.surveyId).subscribe({
         next: (response: Question[]) => {
           this.questions = response;
         },

@@ -7,6 +7,7 @@ import {User} from "../../models/user.model";
 import {CompletedSurvey} from "../../models/completedSurvey.model";
 import {EditDialogComponent} from "../edit-dialog/edit-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
+import {ResultsSurveyComponent} from "../results-survey/results-survey.component";
 
 @Component({
   selector: 'app-user-mainpage',
@@ -127,7 +128,7 @@ export class UserMainpageComponent implements OnInit {
   }
 
   openDialogResults(surveyId: number): void {
-    const dialogRef = this.dialog.open(EditDialogComponent, {
+    const dialogRef = this.dialog.open(ResultsSurveyComponent, {
       width: '500px',
       height: '250px',
       data: {
@@ -135,7 +136,7 @@ export class UserMainpageComponent implements OnInit {
         title: this.surveys[surveyId].title,
         creator: this.surveys[surveyId].creator,
         start_date: this.surveys[surveyId].start_date,
-        end_date: this.surveys[surveyId].end_date
+        end_date: this.surveys[surveyId].end_date,
       }
     }).afterClosed()
       .subscribe((shouldReload: boolean) => {

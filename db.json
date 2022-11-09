@@ -53,6 +53,12 @@
       "password": "test",
       "type": "creator",
       "id": 8
+    },
+    {
+      "email": "cata@cata.ro",
+      "password": "cata",
+      "type": "user",
+      "id": 9
     }
   ],
   "Surveys": [
@@ -60,8 +66,8 @@
       "id": 0,
       "title": "Animals",
       "creator": "alechivescu@gmail.com",
-      "start_date": "11-03-2022",
-      "end_date": "11-20-2022"
+      "start_date": "1916-09-10T21:57:56.000Z",
+      "end_date": "2022-11-10T22:00:00.000Z"
     },
     {
       "id": 1,
@@ -125,7 +131,7 @@
       "id": 0,
       "question_id": 0,
       "answer": "Dogs",
-      "noResponses": 0
+      "noResponses": 2
     },
     {
       "id": 1,
@@ -143,7 +149,7 @@
       "id": 3,
       "question_id": 1,
       "answer": "2",
-      "noResponses": 0
+      "noResponses": 2
     },
     {
       "id": 4,
@@ -167,13 +173,13 @@
       "id": 7,
       "question_id": 2,
       "answer": "Golden Retriever",
-      "noResponses": 0
+      "noResponses": 1
     },
     {
       "id": 8,
       "question_id": 2,
       "answer": "Siberian Husky",
-      "noResponses": 0
+      "noResponses": 1
     },
     {
       "id": 9,
@@ -287,11 +293,16 @@
       "id": 2,
       "user_id": 1,
       "survey_id": 0
+    },
+    {
+      "user_id": 0,
+      "survey_id": 0,
+      "id": 3
+    },
+    {
+      "user_id": 9,
+      "survey_id": 0,
+      "id": 4
     }
   ]
 }
-
-
-
-
-

@@ -1,1 +1,12 @@
-<p>results-survey works!</p>
+<div *ngIf="this.isPageLoaded">
+  <div *ngFor="let question of this.questions">
+    <p><b>{{question.title}}</b></p>
+    <div *ngFor="let answer of this.allAnswers">
+      <li *ngIf="answer.question_id == question.id">{{this.generateAnswers(answer)}}</li>
+    </div>
+
+</div>
+<mat-dialog-actions>
+  <button mat-stroked-button color="primary" class="add-client-button" (click)="closeDialog()">Cancel</button>
+</mat-dialog-actions>
+</div>

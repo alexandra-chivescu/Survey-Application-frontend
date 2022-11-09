@@ -37,7 +37,7 @@ export class UserService {
   }
 
 
-  public getQuestion(survey_id : number) : Observable<Question[]> {
+  public getQuestionsBySurveyId(survey_id : number) : Observable<Question[]> {
     return this.http.get<Question[]>("http://localhost:3000/Questions?survey_id="+survey_id);
   }
 
