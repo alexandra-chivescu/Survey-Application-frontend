@@ -25,7 +25,7 @@
         </mat-card-content>
         <mat-card-actions>
           <button [routerLink]="['/complete-survey']" *ngIf="isActive(i) && !completedSurveys[i]" (click)="newSurveyId(i)" mat-raised-button color="primary">Complete</button>
-          <button (click)="openDialogResults(survey.id)"  mat-stroked-button color="primary">Show results</button>
+          <button *ngIf="completedSurveys[i]" (click)="openDialogResults(survey.id)"  mat-stroked-button color="primary">Show results</button>
         </mat-card-actions>
       </mat-card>
     </div>
