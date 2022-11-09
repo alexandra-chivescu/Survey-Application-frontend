@@ -37,8 +37,12 @@ export class UserService {
   }
 
 
-  public getQuestions(survey_id : number) : Observable<Question[]> {
+  public getQuestion(survey_id : number) : Observable<Question[]> {
     return this.http.get<Question[]>("http://localhost:3000/Questions?survey_id="+survey_id);
+  }
+
+  public getQuestions() : Observable<Question[]> {
+    return this.http.get<Question[]>("http://localhost:3000/Questions");
   }
 
   public getAnswers() : Observable<Answer[]> {
@@ -58,7 +62,7 @@ export class UserService {
   }
 
   public getCompletedSurveys() : Observable<CompletedSurvey[]> {
-    return this.http.get<CompletedSurvey[]>("http://localhost:3000/CompletedSurvey");
+    return this.   http.get<CompletedSurvey[]>("http://localhost:3000/CompletedSurvey");
   }
   public getCompletedSurveyByUserIdAndSurveyId(userId : number, surveyId : number) : Observable<CompletedSurvey[]> {
     return this.http.get<CompletedSurvey[]>("http://localhost:3000/CompletedSurvey?survey_id="+surveyId+"&user_id="+userId);
@@ -67,5 +71,18 @@ export class UserService {
   public changeEndDateForSurvey(updatedSurvey : Survey) : Observable<Survey> {
     return this.http.put<Survey>("http://localhost:3000/Surveys/" + updatedSurvey.id, updatedSurvey);
   }
+
+  public createNewSurvey(survey: Survey) : Observable<Survey>{
+    return this.http.post<Survey>("http://localhost:3000/Surveys", survey);
+  }
+
+  public createNewQuestion(question: Question) : Observable<Question>{
+    return this.http.post<Question>("http://localhost:3000/Questions", question);
+  }
+
+  public createNewAnswer(answer: Answer) : Observable<Answer>{
+    return this.http.post<Answer>("http://localhost:3000/Answers", answer);
+  }
+
 
 }

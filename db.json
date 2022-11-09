@@ -60,22 +60,22 @@
       "id": 0,
       "title": "Animals",
       "creator": "alechivescu@gmail.com",
-      "start_date": "2022-11-03T22:00:00.000Z",
-      "end_date": "2022-11-16T22:00:00.000Z"
+      "start_date": "11-03-2022",
+      "end_date": "11-20-2022"
     },
     {
       "id": 1,
       "title": "Food",
       "creator": "jchivescu@gmail.com",
-      "start_date": "2022-11-03T22:00:00.000Z",
-      "end_date": "2022-11-03T22:00:00.000Z"
+      "start_date": "11-05-2022",
+      "end_date": "11-05-2022"
     },
     {
       "id": 2,
       "title": "Sports",
-      "creator": "alechivescu@gmail.com",
-      "start_date": "2022-11-01T22:00:00.000Z",
-      "end_date": "2022-11-01T22:00:00.000Z"
+      "creator": "alema@gmail.com",
+      "start_date": "11-05-2022",
+      "end_date": "11-10-2022"
     }
   ],
   "Questions": [
@@ -131,7 +131,7 @@
       "id": 1,
       "question_id": 0,
       "answer": "Cats",
-      "noResponses": 2
+      "noResponses": 0
     },
     {
       "id": 2,
@@ -143,7 +143,7 @@
       "id": 3,
       "question_id": 1,
       "answer": "2",
-      "noResponses": 2
+      "noResponses": 0
     },
     {
       "id": 4,
@@ -287,16 +287,11 @@
       "id": 2,
       "user_id": 1,
       "survey_id": 0
-    },
-    {
-      "user_id": 0,
-      "survey_id": 0,
-      "id": 3
-    },
-    {
-      "user_id": 0,
-      "survey_id": 2,
-      "id": 4
     }
   ]
 }
+
+
+
+
+

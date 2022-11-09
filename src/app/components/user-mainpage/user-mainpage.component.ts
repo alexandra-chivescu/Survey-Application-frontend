@@ -5,7 +5,6 @@ import {Survey} from "../../models/survey.model";
 import {DataService} from "../../services/data.service";
 import {User} from "../../models/user.model";
 import {CompletedSurvey} from "../../models/completedSurvey.model";
-import {AuthService} from "../../services/auth.service";
 import {EditDialogComponent} from "../edit-dialog/edit-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 
@@ -88,6 +87,11 @@ export class UserMainpageComponent implements OnInit {
     }
   }
 
+  public stringDate(date: Date) : string {
+    var arr = date.toString().split(" ");
+    return arr[2] + " - " + arr[1] + " - " + arr[3];
+  }
+
   public isActive(id: number): boolean {
     if (this.surveys[id].end_date < Date.now())
       return false;
@@ -121,5 +125,26 @@ export class UserMainpageComponent implements OnInit {
         if (shouldReload) window.location.reload();
       });
   }
+
+  openDialogResults(surveyId: number): void {
+    const dialogRef = this.dialog.open(EditDialogComponent, {
+      width: '500px',
+      height: '250px',
+      data: {
+        id: surveyId,
+        title: this.surveys[surveyId].title,
+        creator: this.surveys[surveyId].creator,
+        start_date: this.surveys[surveyId].start_date,
+        end_date: this.surveys[surveyId].end_date
+      }
+    }).afterClosed()
+      .subscribe((shouldReload: boolean) => {
+        dialogRef.unsubscribe();
+
+        if (shouldReload) window.location.reload();
+      });
+  }
+
+
 
 }

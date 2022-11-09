@@ -18,7 +18,7 @@
 
       <mat-form-field class="input-field" appearance="outline">
         <mat-label>Choose end date</mat-label>
-        <input formControlName="startDate" matInput [matDatepicker]="picker2" required>
+        <input formControlName="endDate" matInput [matDatepicker]="picker2" required>
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
         <mat-datepicker #picker2></mat-datepicker>
@@ -27,23 +27,260 @@
       <br>
       <mat-divider></mat-divider>
 
-      <mat-form-field appearance="legacy" *ngFor="let valueQuestion of valuesQuestions; let i = index">
+      <mat-icon>arrow_right_alt</mat-icon>
+      <mat-form-field class="input-field" appearance="legacy" >
         <mat-label>Question</mat-label>
-        <input matInput formControlName="question" required>
+        <input matInput formControlName="question1" required>
         <mat-hint *ngIf="!titleInput.value">Enter question for survey</mat-hint>
       </mat-form-field>
-      <button (click)="addValueQuestion()">ADD</button>
-
-
-      <div *ngFor="let valueQuestion of valuesQuestions">
-
-      </div>
-<!--      <div *ngFor="let valueQuestion of valuesQuestions; let i = index">-->
-<!--        <input id="question" formControlName="question" type="text" >-->
-<!--        <button (click)="removeValueQuestion(i)">Remove</button>-->
-<!--      </div>-->
-<!--      <div *ngFor="let valueQuestion of valuesQuestions" >-->
-<!--        {{valueQuestion}}-->
-<!--      </div>-->
+      <br>
+      <mat-icon>looks_one</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer1" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>looks_two</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer2" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>looks_3</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer3" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>arrow_right_alt</mat-icon>
+      <mat-form-field class="input-field" appearance="legacy" >
+        <mat-label>Question</mat-label>
+        <input matInput formControlName="question2" required>
+        <mat-hint *ngIf="!titleInput.value">Enter question for survey</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>looks_one</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer4" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>looks_two</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer5" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>looks_3</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer6" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>arrow_right_alt</mat-icon>
+      <mat-form-field class="input-field" appearance="legacy" >
+        <mat-label>Question</mat-label>
+        <input matInput formControlName="question3" required>
+        <mat-hint *ngIf="!titleInput.value">Enter question for survey</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>looks_one</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer7" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>looks_two</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer8" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>looks_3</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer9" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>arrow_right_alt</mat-icon>
+      <mat-form-field class="input-field" appearance="legacy" >
+        <mat-label>Question</mat-label>
+        <input matInput formControlName="question4" required>
+        <mat-hint *ngIf="!titleInput.value">Enter question for survey</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>looks_one</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer10" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>looks_two</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer11" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>looks_3</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer12" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>arrow_right_alt</mat-icon>
+      <mat-form-field class="input-field" appearance="legacy" >
+        <mat-label>Question</mat-label>
+        <input matInput formControlName="question5" required>
+        <mat-hint *ngIf="!titleInput.value">Enter question for survey</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>looks_one</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer13" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>looks_two</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer14" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>looks_3</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer15" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>arrow_right_alt</mat-icon>
+      <mat-form-field class="input-field" appearance="legacy" >
+        <mat-label>Question</mat-label>
+        <input matInput formControlName="question6" required>
+        <mat-hint *ngIf="!titleInput.value">Enter question for survey</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>looks_one</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer16" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>looks_two</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer17" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>looks_3</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer18" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>arrow_right_alt</mat-icon>
+      <mat-form-field class="input-field" appearance="legacy" >
+        <mat-label>Question</mat-label>
+        <input matInput formControlName="question7" required>
+        <mat-hint *ngIf="!titleInput.value">Enter question for survey</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>looks_one</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer19" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>looks_two</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer20" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>looks_3</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer21" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>arrow_right_alt</mat-icon>
+      <mat-form-field class="input-field" appearance="legacy" >
+        <mat-label>Question</mat-label>
+        <input matInput formControlName="question8" required>
+        <mat-hint *ngIf="!titleInput.value">Enter question for survey</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>looks_one</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer22" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>looks_two</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer23" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>looks_3</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer24" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>arrow_right_alt</mat-icon>
+      <mat-form-field class="input-field" appearance="legacy" >
+        <mat-label>Question</mat-label>
+        <input matInput formControlName="question10" required>
+        <mat-hint *ngIf="!titleInput.value">Enter question for survey</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>looks_one</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer25" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>looks_two</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer26" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-icon>looks_3</mat-icon>
+      <mat-form-field class="input-field" appearance="outline">
+        <mat-label>Answer</mat-label>
+        <input matInput formControlName="answer27" required>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
     </form>
+    <mat-dialog-actions>
+      <button [routerLink]="['/home-user']" mat-stroked-button color="primary">Cancel</button>
+      <button mat-raised-button color="primary" class="add-client-button" (click)="createNewSurvey()">Save</button>
+    </mat-dialog-actions>
   </mat-card>

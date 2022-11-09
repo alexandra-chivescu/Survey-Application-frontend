@@ -17,14 +17,15 @@
             <p class="inactive-survey" *ngIf="!isActive(i)">INACTIVE</p>
             <mat-divider></mat-divider>
             <br>
-            <p><b>Start date:</b> {{survey.start_date}}</p>
-            <p><b>End date:</b> {{survey.end_date}}</p>
+            <p><b>Start date:</b> {{this.stringDate(survey.start_date)}}</p>
+<!--            <p><b>Start date:</b> {{survey.start_date}}</p>-->
+            <p><b>End date:</b> {{this.stringDate(survey.end_date)}}</p>
 
           </mat-list>
         </mat-card-content>
         <mat-card-actions>
           <button [routerLink]="['/complete-survey']" *ngIf="isActive(i) && !completedSurveys[i]" (click)="newSurveyId(i)" mat-raised-button color="primary">Complete</button>
-          <button [routerLink]="['/results-survey']"  mat-stroked-button color="primary">Show results</button>
+          <button (click)="openDialogResults(survey.id)"  mat-stroked-button color="primary">Show results</button>
         </mat-card-actions>
       </mat-card>
     </div>
