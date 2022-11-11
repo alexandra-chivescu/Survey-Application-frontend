@@ -81,7 +81,10 @@ export class CreateSurveyComponent implements OnInit {
       'answer24': new FormControl('', [Validators.required]),
       'answer25': new FormControl('', [Validators.required]),
       'answer26': new FormControl('', [Validators.required]),
-      'answer27': new FormControl('', [Validators.required])
+      'answer27': new FormControl('', [Validators.required]),
+      'answer28': new FormControl('', [Validators.required]),
+      'answer29': new FormControl('', [Validators.required]),
+      'answer30': new FormControl('', [Validators.required])
     });
   }
 
@@ -138,7 +141,6 @@ export class CreateSurveyComponent implements OnInit {
               if (i == 8) {
                 this.questionsAreCompleted.next(true);
               }
-              console.log(response)
             },
             error: () => alert("Something went wrong with questions")
           })
@@ -162,13 +164,13 @@ export class CreateSurveyComponent implements OnInit {
       })
       .sort((a, b) => b - a)[0] + 1
 
-    for (let i = 0; i < 27; i++) {
+    for (let i = 0; i < 30; i++) {
       if (i == j + 3) {
         questionId++;
         j = j + 3;
       }
       this.answer = new Answer(index++, questionId, this.NewSurveyGeneralDetails.controls['answer' + (i + 1)].value, 0);
-      await delay(100);
+      await delay(200);
       this.userService.createNewAnswer(this.answer).subscribe({
         next: async (response: Answer) => {
         },

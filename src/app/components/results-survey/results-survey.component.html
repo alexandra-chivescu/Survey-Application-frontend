@@ -1,13 +1,14 @@
-<h1>Survey's results</h1>
+<h1 class="title">Survey's results</h1>
+<div class="survey-results">
 <div *ngIf="this.isPageLoaded">
-  <div *ngFor="let question of this.questions">
-    <p><b>{{question.title}}</b></p>
+  <div *ngFor="let question of this.questions; let i = index">
+    <p class="question-title">{{i+1}}. {{question.title}}</p>
     <div *ngFor="let answer of this.allAnswers">
       <li *ngIf="answer.question_id == question.id">{{this.generateAnswers(answer)}}</li>
     </div>
-
+  </div>
+  <mat-dialog-actions>
+    <button mat-raised-button color="primary" class="add-client-button" (click)="closeDialog()">OK</button>
+  </mat-dialog-actions>
 </div>
-<mat-dialog-actions>
-  <button mat-stroked-button color="primary" class="add-client-button" (click)="closeDialog()">Cancel</button>
-</mat-dialog-actions>
 </div>

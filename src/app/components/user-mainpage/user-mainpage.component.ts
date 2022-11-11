@@ -111,7 +111,7 @@ export class UserMainpageComponent implements OnInit {
   openDialog(surveyId: number): void {
     const dialogRef = this.dialog.open(EditDialogComponent, {
       width: '500px',
-      height: '250px',
+      height: '300px',
       data: {
           id: surveyId,
           title: this.surveys[surveyId].title,
@@ -130,7 +130,7 @@ export class UserMainpageComponent implements OnInit {
   openDialogResults(surveyId: number): void {
     const dialogRef = this.dialog.open(ResultsSurveyComponent, {
       width: '500px',
-      height: '450px',
+      height: '550px',
       data: {
         id: surveyId,
         title: this.surveys[surveyId].title,

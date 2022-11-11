@@ -1,6 +1,7 @@
 <app-toolbar></app-toolbar>
   <mat-card class="survey-card">
     <form class="new-survey-form" [formGroup]="NewSurveyGeneralDetails">
+      <p>Enter survey title: </p>
       <mat-form-field class="input-field" appearance="outline">
         <mat-label>Survey Title</mat-label>
         <input type="surveyTitle" matInput formControlName="surveyTitle" required>
@@ -253,6 +254,34 @@
       <br>
       <mat-icon>arrow_right_alt</mat-icon>
       <mat-form-field class="input-field" appearance="legacy" >
+    <mat-label>Question</mat-label>
+    <input matInput formControlName="question9" required>
+    <mat-hint *ngIf="!titleInput.value">Enter question for survey</mat-hint>
+  </mat-form-field>
+    <br>
+    <mat-icon>looks_one</mat-icon>
+    <mat-form-field class="input-field" appearance="outline">
+      <mat-label>Answer</mat-label>
+      <input matInput formControlName="answer25" required>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+    <br>
+    <mat-icon>looks_two</mat-icon>
+    <mat-form-field class="input-field" appearance="outline">
+      <mat-label>Answer</mat-label>
+      <input matInput formControlName="answer26" required>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+    <br>
+    <mat-icon>looks_3</mat-icon>
+    <mat-form-field class="input-field" appearance="outline">
+      <mat-label>Answer</mat-label>
+      <input matInput formControlName="answer27" required>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+      <br>
+      <mat-icon>arrow_right_alt</mat-icon>
+      <mat-form-field class="input-field" appearance="legacy" >
         <mat-label>Question</mat-label>
         <input matInput formControlName="question10" required>
         <mat-hint *ngIf="!titleInput.value">Enter question for survey</mat-hint>
@@ -261,26 +290,26 @@
       <mat-icon>looks_one</mat-icon>
       <mat-form-field class="input-field" appearance="outline">
         <mat-label>Answer</mat-label>
-        <input matInput formControlName="answer25" required>
+        <input matInput formControlName="answer28" required>
         <mat-hint>Hint</mat-hint>
       </mat-form-field>
       <br>
       <mat-icon>looks_two</mat-icon>
       <mat-form-field class="input-field" appearance="outline">
         <mat-label>Answer</mat-label>
-        <input matInput formControlName="answer26" required>
+        <input matInput formControlName="answer29" required>
         <mat-hint>Hint</mat-hint>
       </mat-form-field>
       <br>
       <mat-icon>looks_3</mat-icon>
       <mat-form-field class="input-field" appearance="outline">
         <mat-label>Answer</mat-label>
-        <input matInput formControlName="answer27" required>
+        <input matInput formControlName="answer30" required>
         <mat-hint>Hint</mat-hint>
       </mat-form-field>
     </form>
     <mat-dialog-actions>
       <button [routerLink]="['/home-user']" mat-stroked-button color="primary">Cancel</button>
-      <button mat-raised-button color="primary" class="add-client-button" (click)="createNewSurvey()">Save</button>
+      <button [routerLink]="['/home-user']" mat-raised-button color="primary" class="add-client-button" (click)="createNewSurvey()">Save</button>
     </mat-dialog-actions>
   </mat-card>

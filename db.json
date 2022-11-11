@@ -4,7 +4,7 @@
       "id": 0,
       "email": "alechivescu@gmail.com",
       "password": "1234",
-      "type": "creator"
+      "type": "user"
     },
     {
       "id": 1,
@@ -55,10 +55,16 @@
       "id": 8
     },
     {
-      "email": "cata@cata.ro",
-      "password": "cata",
-      "type": "user",
+      "email": "testut@test.com",
+      "password": "test",
+      "type": "creator",
       "id": 9
+    },
+    {
+      "email": "testut@test.com",
+      "password": "1234",
+      "type": "creator",
+      "id": 10
     }
   ],
   "Surveys": [
@@ -66,21 +72,35 @@
       "id": 0,
       "title": "Animals",
       "creator": "alechivescu@gmail.com",
-      "start_date": "1916-09-10T21:57:56.000Z",
-      "end_date": "2022-11-10T22:00:00.000Z"
+      "start_date": "2022-10-31T22:00:00.000Z",
+      "end_date": "2022-12-31T22:00:00.000Z"
     },
     {
       "id": 1,
       "title": "Food",
       "creator": "jchivescu@gmail.com",
-      "start_date": "11-05-2022",
-      "end_date": "11-05-2022"
+      "start_date": "2022-10-31T22:00:00.000Z",
+      "end_date": "2022-12-31T22:00:00.000Z"
     },
     {
       "id": 2,
       "title": "Sports",
+      "creator": "alema@gmail.com",
+      "start_date": "2022-09-31T22:00:00.000Z",
+      "end_date": "2022-10-31T22:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "title": "Optiuni facultate",
       "creator": "alechivescu@gmail.com",
-      "start_date": "1916-11-10T21:57:56.000Z",
+      "start_date": "2022-10-31T22:00:00.000Z",
+      "end_date": "2022-11-29T22:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "title": "TEST",
+      "creator": "testut@test.com",
+      "start_date": "2022-10-29T21:00:00.000Z",
       "end_date": "2022-11-17T22:00:00.000Z"
     }
   ],
@@ -124,6 +144,106 @@
       "id": 7,
       "survey_id": 2,
       "title": "How old is Emma Raducanu?"
+    },
+    {
+      "id": 8,
+      "survey_id": 3,
+      "title": "Specialitate semestrul 1:"
+    },
+    {
+      "id": 9,
+      "survey_id": 3,
+      "title": "Antreprenorial semestrul 1:"
+    },
+    {
+      "id": 10,
+      "survey_id": 3,
+      "title": "Domeniu semestrul 1:"
+    },
+    {
+      "id": 11,
+      "survey_id": 3,
+      "title": "Specialitate semestrul 2:"
+    },
+    {
+      "id": 12,
+      "survey_id": 3,
+      "title": "Specialitate 2 semestrul 2:"
+    },
+    {
+      "id": 13,
+      "survey_id": 3,
+      "title": "Antreprenorial semestrul 2:"
+    },
+    {
+      "id": 14,
+      "survey_id": 3,
+      "title": "Domeniu semestrul 2:"
+    },
+    {
+      "id": 15,
+      "survey_id": 3,
+      "title": "Va plac optiunile de anul acesta?"
+    },
+    {
+      "id": 16,
+      "survey_id": 3,
+      "title": "V-au ajutat descrierile de la optiuni pentru alegerea lor?"
+    },
+    {
+      "id": 17,
+      "survey_id": 3,
+      "title": "Cati ani de licenta considerati ca ar fi optimi?"
+    },
+    {
+      "id": 18,
+      "survey_id": 4,
+      "title": "1"
+    },
+    {
+      "id": 19,
+      "survey_id": 4,
+      "title": "1"
+    },
+    {
+      "id": 20,
+      "survey_id": 4,
+      "title": "1"
+    },
+    {
+      "id": 21,
+      "survey_id": 4,
+      "title": "1"
+    },
+    {
+      "id": 22,
+      "survey_id": 4,
+      "title": "1"
+    },
+    {
+      "id": 23,
+      "survey_id": 4,
+      "title": "1"
+    },
+    {
+      "id": 24,
+      "survey_id": 4,
+      "title": "1"
+    },
+    {
+      "id": 25,
+      "survey_id": 4,
+      "title": "1"
+    },
+    {
+      "id": 26,
+      "survey_id": 4,
+      "title": "1"
+    },
+    {
+      "id": 27,
+      "survey_id": 4,
+      "title": "Ce faci?"
     }
   ],
   "Answers": [
@@ -131,7 +251,7 @@
       "id": 0,
       "question_id": 0,
       "answer": "Dogs",
-      "noResponses": 2
+      "noResponses": 9
     },
     {
       "id": 1,
@@ -149,7 +269,7 @@
       "id": 3,
       "question_id": 1,
       "answer": "2",
-      "noResponses": 2
+      "noResponses": 8
     },
     {
       "id": 4,
@@ -173,13 +293,13 @@
       "id": 7,
       "question_id": 2,
       "answer": "Golden Retriever",
-      "noResponses": 1
+      "noResponses": 4
     },
     {
       "id": 8,
       "question_id": 2,
       "answer": "Siberian Husky",
-      "noResponses": 1
+      "noResponses": 0
     },
     {
       "id": 9,
@@ -203,7 +323,7 @@
       "id": 12,
       "question_id": 3,
       "answer": "French fries",
-      "noResponses": 0
+      "noResponses": 1
     },
     {
       "id": 13,
@@ -215,7 +335,7 @@
       "id": 14,
       "question_id": 4,
       "answer": "No",
-      "noResponses": 0
+      "noResponses": 1
     },
     {
       "id": 15,
@@ -227,7 +347,7 @@
       "id": 16,
       "question_id": 5,
       "answer": "Tenis",
-      "noResponses": 0
+      "noResponses": 1
     },
     {
       "id": 17,
@@ -276,6 +396,366 @@
       "question_id": 7,
       "answer": "25",
       "noResponses": 0
+    },
+    {
+      "id": 25,
+      "question_id": 8,
+      "answer": "Tehnici web",
+      "noResponses": 0
+    },
+    {
+      "id": 26,
+      "question_id": 8,
+      "answer": "Introducere în robotica",
+      "noResponses": 0
+    },
+    {
+      "id": 27,
+      "question_id": 8,
+      "answer": "Cloud computing",
+      "noResponses": 0
+    },
+    {
+      "id": 28,
+      "question_id": 9,
+      "answer": "Management",
+      "noResponses": 0
+    },
+    {
+      "id": 29,
+      "question_id": 9,
+      "answer": "Comunicare și relații publice",
+      "noResponses": 0
+    },
+    {
+      "id": 30,
+      "question_id": 9,
+      "answer": "Marketing",
+      "noResponses": 0
+    },
+    {
+      "id": 31,
+      "question_id": 10,
+      "answer": "Prelucrarea semnalelor",
+      "noResponses": 0
+    },
+    {
+      "id": 32,
+      "question_id": 10,
+      "answer": "Metode moderne de calcul şi simulare",
+      "noResponses": 0
+    },
+    {
+      "id": 33,
+      "question_id": 10,
+      "answer": "Algoritmica",
+      "noResponses": 0
+    },
+    {
+      "id": 34,
+      "question_id": 11,
+      "answer": "Blockchain",
+      "noResponses": 0
+    },
+    {
+      "id": 35,
+      "question_id": 11,
+      "answer": "Production engineering [industrie]",
+      "noResponses": 0
+    },
+    {
+      "id": 36,
+      "question_id": 11,
+      "answer": "Strategii de planificare a unei echipe de roboți (SPER)",
+      "noResponses": 0
+    },
+    {
+      "id": 37,
+      "question_id": 12,
+      "answer": "Inițiere în cercetare și bioinformatică",
+      "noResponses": 0
+    },
+    {
+      "id": 38,
+      "question_id": 12,
+      "answer": "Programare pe dispozitive mobile",
+      "noResponses": 0
+    },
+    {
+      "id": 39,
+      "question_id": 12,
+      "answer": "Învățare automată în Vedere Artificială [industrie]",
+      "noResponses": 0
+    },
+    {
+      "id": 40,
+      "question_id": 13,
+      "answer": "Managementul operațiunilor",
+      "noResponses": 0
+    },
+    {
+      "id": 41,
+      "question_id": 13,
+      "answer": "Management",
+      "noResponses": 0
+    },
+    {
+      "id": 42,
+      "question_id": 13,
+      "answer": "Marketing",
+      "noResponses": 0
+    },
+    {
+      "id": 43,
+      "question_id": 14,
+      "answer": "Algoritmi paraleli",
+      "noResponses": 0
+    },
+    {
+      "id": 44,
+      "question_id": 14,
+      "answer": "Sistemul de operare Linux",
+      "noResponses": 0
+    },
+    {
+      "id": 45,
+      "question_id": 14,
+      "answer": "Retelistica",
+      "noResponses": 0
+    },
+    {
+      "id": 46,
+      "question_id": 15,
+      "answer": "Da",
+      "noResponses": 0
+    },
+    {
+      "id": 47,
+      "question_id": 15,
+      "answer": "Nu",
+      "noResponses": 0
+    },
+    {
+      "id": 48,
+      "question_id": 15,
+      "answer": "Unele",
+      "noResponses": 0
+    },
+    {
+      "id": 49,
+      "question_id": 16,
+      "answer": "Da",
+      "noResponses": 0
+    },
+    {
+      "id": 50,
+      "question_id": 16,
+      "answer": "Nu",
+      "noResponses": 0
+    },
+    {
+      "id": 51,
+      "question_id": 16,
+      "answer": "Au lipsuri",
+      "noResponses": 0
+    },
+    {
+      "id": 52,
+      "question_id": 17,
+      "answer": "3",
+      "noResponses": 0
+    },
+    {
+      "id": 53,
+      "question_id": 17,
+      "answer": "4",
+      "noResponses": 0
+    },
+    {
+      "id": 54,
+      "question_id": 17,
+      "answer": "5",
+      "noResponses": 0
+    },
+    {
+      "id": 55,
+      "question_id": 18,
+      "answer": "1",
+      "noResponses": 0
+    },
+    {
+      "id": 56,
+      "question_id": 18,
+      "answer": "1",
+      "noResponses": 2
+    },
+    {
+      "id": 57,
+      "question_id": 18,
+      "answer": "1",
+      "noResponses": 0
+    },
+    {
+      "id": 58,
+      "question_id": 19,
+      "answer": "1",
+      "noResponses": 0
+    },
+    {
+      "id": 59,
+      "question_id": 19,
+      "answer": "1",
+      "noResponses": 2
+    },
+    {
+      "id": 60,
+      "question_id": 19,
+      "answer": "1",
+      "noResponses": 0
+    },
+    {
+      "id": 61,
+      "question_id": 20,
+      "answer": "1",
+      "noResponses": 0
+    },
+    {
+      "id": 62,
+      "question_id": 20,
+      "answer": "1",
+      "noResponses": 2
+    },
+    {
+      "id": 63,
+      "question_id": 20,
+      "answer": "1",
+      "noResponses": 0
+    },
+    {
+      "id": 64,
+      "question_id": 21,
+      "answer": "1",
+      "noResponses": 0
+    },
+    {
+      "id": 65,
+      "question_id": 21,
+      "answer": "1",
+      "noResponses": 2
+    },
+    {
+      "id": 66,
+      "question_id": 21,
+      "answer": "1",
+      "noResponses": 0
+    },
+    {
+      "id": 67,
+      "question_id": 22,
+      "answer": "1",
+      "noResponses": 0
+    },
+    {
+      "id": 68,
+      "question_id": 22,
+      "answer": "1",
+      "noResponses": 2
+    },
+    {
+      "id": 69,
+      "question_id": 22,
+      "answer": "1",
+      "noResponses": 0
+    },
+    {
+      "id": 70,
+      "question_id": 23,
+      "answer": "1",
+      "noResponses": 2
+    },
+    {
+      "id": 71,
+      "question_id": 23,
+      "answer": "1",
+      "noResponses": 0
+    },
+    {
+      "id": 72,
+      "question_id": 23,
+      "answer": "1",
+      "noResponses": 0
+    },
+    {
+      "id": 73,
+      "question_id": 24,
+      "answer": "1",
+      "noResponses": 2
+    },
+    {
+      "id": 74,
+      "question_id": 24,
+      "answer": "1",
+      "noResponses": 0
+    },
+    {
+      "id": 75,
+      "question_id": 24,
+      "answer": "1",
+      "noResponses": 0
+    },
+    {
+      "id": 76,
+      "question_id": 25,
+      "answer": "1",
+      "noResponses": 0
+    },
+    {
+      "id": 77,
+      "question_id": 25,
+      "answer": "1",
+      "noResponses": 2
+    },
+    {
+      "id": 78,
+      "question_id": 25,
+      "answer": "1",
+      "noResponses": 0
+    },
+    {
+      "id": 79,
+      "question_id": 26,
+      "answer": "1",
+      "noResponses": 2
+    },
+    {
+      "id": 80,
+      "question_id": 26,
+      "answer": "1",
+      "noResponses": 0
+    },
+    {
+      "id": 81,
+      "question_id": 26,
+      "answer": "1",
+      "noResponses": 0
+    },
+    {
+      "id": 82,
+      "question_id": 27,
+      "answer": "bine",
+      "noResponses": 0
+    },
+    {
+      "id": 83,
+      "question_id": 27,
+      "answer": "asa si asa",
+      "noResponses": 2
+    },
+    {
+      "id": 84,
+      "question_id": 27,
+      "answer": "perfect",
+      "noResponses": 0
     }
   ],
   "CompletedSurvey": [
@@ -295,14 +775,29 @@
       "survey_id": 0
     },
     {
-      "user_id": 0,
+      "user_id": 9,
       "survey_id": 0,
       "id": 3
     },
     {
       "user_id": 9,
-      "survey_id": 0,
+      "survey_id": 4,
       "id": 4
+    },
+    {
+      "user_id": 0,
+      "survey_id": 1,
+      "id": 5
+    },
+    {
+      "user_id": 0,
+      "survey_id": 4,
+      "id": 6
+    },
+    {
+      "user_id": 0,
+      "survey_id": 0,
+      "id": 7
     }
   ]
 }

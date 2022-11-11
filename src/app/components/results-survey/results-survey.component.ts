@@ -38,6 +38,7 @@ export class ResultsSurveyComponent implements OnInit {
 
     this.questionService.getQuestionsBySurveyId(this.data.id)
       .subscribe(value => {
+
         this.questions = value
         for (let i = 0; i < this.questions.length; i++) {
           this.questionService.getAnswersByQuestionId(value[i].id)
@@ -63,7 +64,7 @@ export class ResultsSurveyComponent implements OnInit {
       .filter(currentAnswer => currentAnswer.question_id === answer.question_id)
       .map(value => value.noResponses)
       .reduce((previousValue, currentValue) => previousValue + currentValue);
-    console.log(allVotesPerAnswer);
+    allVotesPerAnswer = allVotesPerAnswer === 0 ? 1 : allVotesPerAnswer;
     return answer.answer + " -> " + answer.noResponses + " responses (" + (answer.noResponses/allVotesPerAnswer * 100) + "% )";
   }
 }

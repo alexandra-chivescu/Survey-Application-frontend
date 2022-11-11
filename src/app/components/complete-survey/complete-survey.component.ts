@@ -37,7 +37,6 @@ export class CompleteSurveyComponent implements OnInit {
 
   ngOnInit(): void {
     this.data.currentMessage.subscribe(message => this.surveyId = message);
-    console.log(this.surveyId);
     this.getQuestions();
     this.getAnswers();
     this.getSurveyById();
@@ -124,24 +123,25 @@ export class CompleteSurveyComponent implements OnInit {
               this.allAnswers[i].noResponses = this.allAnswers[i].noResponses + this.answers[i].noResponses;
               //metoda care duce la api-ul unde inlocuiesc datele cu cele updatate dupa adunarea numarului de raspunsuri
               this.modifyAnswer(i, this.allAnswers[i].question_id, this.allAnswers[i].answer, this.allAnswers[i].noResponses);
-              await delay(100)
+              await delay(50)
             }
           },
           error: (error) =>
             alert(error.message)
         }
       )
-
     }
   }
 
   public addResponse(answerId: number, questionId: number) {
     for (let i = 0; i < this.answers.length; i++) {
-      if (this.answers[i].noResponses != 0 && this.answers[i].question_id == this.questions[questionId].id) {
+      if (this.answers[i].noResponses != 0 && this.answers[i].question_id == this.questions.filter((value: { id: number; }) => value.id === questionId)[0].id) {
         this.answers[i].noResponses = 0;
+        console.log('set : ' + this.answers[i].id + " to 0")
       }
     }
     this.answers[answerId].noResponses++;
+    console.log('incremented ' + answerId + ' to ' + this.answers[answerId].noResponses)
   }
 
 }
