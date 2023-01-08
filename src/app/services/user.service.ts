@@ -17,71 +17,68 @@ export class UserService {
   constructor(private http : HttpClient) { }
 
   public register(user: UserRegisterDto) : Observable<User>{
-    return this.http.post<User>("http://localhost:3000/Users", user);
+    return this.http.post<User>("/Home/register", user);
   }
 
   public login(userEmail : string, userPassword : string) {
-    return this.http.get<User[]>("http://localhost:3000/Users?email=" + userEmail + "&password=" + userPassword);
+    return this.http.get<User[]>("/Home/login?email=" + userEmail + "&password=" + userPassword);
   }
 
   public getUserByEmail(userEmail : string) {
-    return this.http.get<User[]>("http://localhost:3000/Users?email=" + userEmail);
+    return this.http.get<User[]>("/Home?email=" + userEmail);
   }
 
   public getSurveys() : Observable<Survey[]> {
-    return this.http.get<Survey[]>("http://localhost:3000/Surveys");
+    return this.http.get<Survey[]>("/Home/Surveys");
   }
 
   public getSurveyById(surveyId : number) : Observable<Survey[]> {
-    return this.http.get<Survey[]>("http://localhost:3000/Surveys?id=" + surveyId);
+    return this.http.get<Survey[]>("/Home/Surveys?id=" + surveyId);
   }
 
 
   public getQuestionsBySurveyId(survey_id : number) : Observable<Question[]> {
-    return this.http.get<Question[]>("http://localhost:3000/Questions?survey_id="+survey_id);
+    return this.http.get<Question[]>("/Home/Questions?survey_id="+survey_id);
   }
 
   public getQuestions() : Observable<Question[]> {
-    return this.http.get<Question[]>("http://localhost:3000/Questions");
+    return this.http.get<Question[]>("/Home/Questions");
   }
 
   public getAnswers() : Observable<Answer[]> {
-    return this.http.get<Answer[]>("http://localhost:3000/Answers");
+    return this.http.get<Answer[]>("/Home/Answers");
   }
 
   public getAnswersByQuestionId(questionId : number) : Observable<Answer[]> {
-    return this.http.get<Answer[]>("http://localhost:3000/Answers?question_id="+questionId);
+    return this.http.get<Answer[]>("/Home/Answers?question_id="+questionId);
   }
 
   public modifyAnswer(modifiedAnswer : Answer) : Observable<Answer> {
-    return this.http.put<Answer>("http://localhost:3000/Answers/" + modifiedAnswer.id, modifiedAnswer);
+    return this.http.put<Answer>("/Home/Answers/", modifiedAnswer);
   }
 
   public completedSurvey(completedSurvey: CompletedSurveyDto) : Observable<CompletedSurveyDto> {
-    return this.http.post<CompletedSurveyDto>("http://localhost:3000/CompletedSurvey", completedSurvey);
+    return this.http.post<CompletedSurveyDto>("/Home/CompletedSurvey", completedSurvey);
   }
 
-  public getCompletedSurveys() : Observable<CompletedSurvey[]> {
-    return this.   http.get<CompletedSurvey[]>("http://localhost:3000/CompletedSurvey");
-  }
   public getCompletedSurveyByUserIdAndSurveyId(userId : number, surveyId : number) : Observable<CompletedSurvey[]> {
-    return this.http.get<CompletedSurvey[]>("http://localhost:3000/CompletedSurvey?survey_id="+surveyId+"&user_id="+userId);
+    return this.http.get<CompletedSurvey[]>("/Home/CompletedSurvey?survey_id="+surveyId+"&user_id="+userId);
   }
 
   public changeEndDateForSurvey(updatedSurvey : Survey) : Observable<Survey> {
-    return this.http.put<Survey>("http://localhost:3000/Surveys/" + updatedSurvey.id, updatedSurvey);
+    return this.http.put<Survey>("/Home/Surveys/", updatedSurvey);
   }
 
   public createNewSurvey(survey: Survey) : Observable<Survey>{
-    return this.http.post<Survey>("http://localhost:3000/Surveys", survey);
+    return this.http.post<Survey>("/Home/Surveys", survey);
   }
 
   public createNewQuestion(question: Question) : Observable<Question>{
-    return this.http.post<Question>("http://localhost:3000/Questions", question);
+    return this.http.post<Question>("/Home/Questions", question);
   }
 
   public createNewAnswer(answer: Answer) : Observable<Answer>{
-    return this.http.post<Answer>("http://localhost:3000/Answers", answer);
+    return this.http.post<Answer>("Home/Answers", answer);
   }
 
 

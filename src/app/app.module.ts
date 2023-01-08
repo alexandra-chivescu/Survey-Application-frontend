@@ -42,8 +42,8 @@ const appRoutes: Routes = [
   {path: 'register-user', component: UserRegisterComponent},
   {path: 'home-user', component: UserMainpageComponent},
   {path: 'complete-survey', component: CompleteSurveyComponent},
-  {path: 'create-survey', component: CreateSurveyComponent},
-  {path: 'home-user', component: EditDialogComponent}
+  {path: 'create-survey', component: CreateSurveyComponent}
+  // {path: 'home-user', component: EditDialogComponent}
 ];
 
 @NgModule({

@@ -56,7 +56,7 @@ export class ResultsSurveyComponent implements OnInit {
   }
 
   public closeDialog() {
-    this.dialogRef.close(false);
+    this.dialogRef.close(false);;
   }
 
   generateAnswers(answer: Answer): string {

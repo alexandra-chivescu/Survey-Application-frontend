@@ -27,6 +27,7 @@ export class CreateSurveyComponent implements OnInit {
   public answers : Answer[] = [];
   public answer : Answer | any;
   public questionsAreCompleted : Subject<boolean> = new Subject<boolean>();
+  public createdQuestions: Question[] = [];
 
   constructor(private userService: UserService) {
   }
@@ -94,8 +95,9 @@ export class CreateSurveyComponent implements OnInit {
       {
         next: (response: Answer[]) =>
           this.answers = response,
-        error: (error) =>
-          alert(error.message)
+        error: (error) => {
+          // alert(error.message);
+        }
       }
     )
   }
@@ -105,8 +107,9 @@ export class CreateSurveyComponent implements OnInit {
         next: (response: Survey[]) => {
           this.surveys = response;
         },
-        error: (error) =>
-          alert(error.message)
+        error: (error) => {
+          // alert(error.message);
+        }
       }
     )
   }
@@ -116,8 +119,9 @@ export class CreateSurveyComponent implements OnInit {
         next: (response: Question[]) => {
           this.questions = response;
         },
-        error: (error) =>
-          alert(error.message)
+        error: (error) => {
+          // alert(error.message);
+        }
       }
     )
   }
@@ -128,55 +132,61 @@ export class CreateSurveyComponent implements OnInit {
     this.userService.createNewSurvey(this.survey).subscribe({
       next: async (response: Survey) => {
         this.survey = response;
-        let index = this.questions
-          .map((question: { id: number; }) => {
-            return question.id;
-          })
-          .sort((a, b) => b - a)[0] + 1;
         for (let i = 0; i < 10; i++) {
-          this.question = new Question(index++, this.surveys.length, this.NewSurveyGeneralDetails.controls['question' + (i + 1)].value)
+          this.question = new Question(0, this.survey.id, this.NewSurveyGeneralDetails.controls['question' + (i + 1)].value)
           await delay(100);
           this.userService.createNewQuestion(this.question).subscribe({
             next: (response: Question) => {
+              this.createdQuestions.push(response);
               if (i == 8) {
                 this.questionsAreCompleted.next(true);
               }
             },
-            error: () => alert("Something went wrong with questions")
+            // error: () => alert("Something went wrong with questions")
           })
         }
 
       },
-      error: () => alert("Something went wrong with surveys")
+      // error: () => alert("Something went wrong with surveys")
     });
   }
 
 
   public async createAnswersForQuestions(): Promise<void> {
-    let index = this.answers
-      .map((answer: { id: number; }) => {
-        return answer.id;
-      })
-      .sort((a, b) => b - a)[0] + 1;
-    let j = 0, questionId = this.questions
-      .map((question: { id: number; }) => {
-        return question.id;
-      })
-      .sort((a, b) => b - a)[0] + 1
+    this.createdQuestions = this.createdQuestions.sort((a, b) => a.id - b.id);
 
-    for (let i = 0; i < 30; i++) {
-      if (i == j + 3) {
-        questionId++;
-        j = j + 3;
-      }
-      this.answer = new Answer(index++, questionId, this.NewSurveyGeneralDetails.controls['answer' + (i + 1)].value, 0);
+    for (let i = 1; i < 31; i++) {
+      this.answer = new Answer(0, this.getQuestionId(i), this.NewSurveyGeneralDetails.controls['answer' + i].value, 0);
       await delay(200);
       this.userService.createNewAnswer(this.answer).subscribe({
         next: async (response: Answer) => {
         },
-        error: () => alert("Something went wrong with answers")
+        // error: () => alert("Something went wrong with answers")
       });
     }
+  }
+
+  public getQuestionId(i: number) {
+    let index = 0;
+    if (i > 3 && i <= 6)
+      index = 1;
+    else if (i > 6 && i <= 9)
+      index = 2;
+    else if (i > 9 && i <= 12)
+      index = 3;
+    else if (i > 12 && i <= 15)
+      index = 4;
+    else if (i > 15 && i <= 18)
+      index = 5;
+    else if (i > 18 && i <= 21)
+      index = 6;
+    else if (i > 21 && i <= 24)
+      index = 7;
+    else if (i > 24 && i <= 27)
+      index = 8;
+    else if (i > 27)
+      index = 9;
+    return this.createdQuestions[index].id
   }
 
 }

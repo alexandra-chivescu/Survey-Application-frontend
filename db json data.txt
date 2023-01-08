@@ -53,12 +53,6 @@
       "password": "test",
       "type": "creator",
       "id": 8
-    },
-    {
-      "email": "test100@test.com",
-      "password": "test",
-      "type": "creator",
-      "id": 9
     }
   ],
   "Surveys": [
@@ -194,7 +188,7 @@
       "id": 1,
       "question_id": 0,
       "answer": "Cats",
-      "noResponses": 2
+      "noResponses": 0
     },
     {
       "id": 2,
@@ -206,13 +200,13 @@
       "id": 3,
       "question_id": 1,
       "answer": "2",
-      "noResponses": 1
+      "noResponses": 0
     },
     {
       "id": 4,
       "question_id": 1,
       "answer": "4",
-      "noResponses": 1
+      "noResponses": 0
     },
     {
       "id": 5,
@@ -230,7 +224,7 @@
       "id": 7,
       "question_id": 2,
       "answer": "Golden Retriever",
-      "noResponses": 2
+      "noResponses": 0
     },
     {
       "id": 8,
@@ -530,16 +524,6 @@
       "id": 2,
       "user_id": 1,
       "survey_id": 0
-    },
-    {
-      "user_id": 0,
-      "survey_id": 0,
-      "id": 3
-    },
-    {
-      "user_id": 9,
-      "survey_id": 0,
-      "id": 4
     }
   ]
 }

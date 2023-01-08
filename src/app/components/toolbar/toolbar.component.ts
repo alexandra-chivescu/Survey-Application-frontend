@@ -11,7 +11,7 @@ import {User} from "../../models/user.model";
 export class ToolbarComponent implements OnInit {
 
   public username : string | any;
-  public users : User[] | any;
+  public users : User[] | any = [];
 
   constructor(private authService : AuthService,
               private userService : UserService) { }
@@ -29,7 +29,7 @@ export class ToolbarComponent implements OnInit {
     // @ts-ignore
     this.userService.getUserByEmail(localStorage.getItem('email')).subscribe({
         next : (response : User[]) =>
-          this.users = response,
+          this.users.push(response),
         error: (error) =>
           alert(error.message)
       }

@@ -19,7 +19,7 @@ export class UserMainpageComponent implements OnInit {
   public gridColumns: number | any;
   public surveyId: number | any;
   public completedSurveys: [] | any = [];
-  public users: User[] | any;
+  public users: User[] | any = [];
   public username: string | any;
   public isCreator: boolean | any;
 
@@ -43,7 +43,8 @@ export class UserMainpageComponent implements OnInit {
     // @ts-ignore
     this.userService.getUserByEmail(localStorage.getItem('email')).subscribe({
         next: (response: User[]) => {
-          this.users = response;
+          this.users.push(response);
+          console.log(this.users);
           this.getSurveys();
         },
         error: (error) =>
@@ -53,6 +54,7 @@ export class UserMainpageComponent implements OnInit {
   }
 
   public formatDate(date : string) : Date {
+  console.log("Data: " + date);
   date = date.substring(0, 10);
   let [year, month, day] = date.split('-');
   const dateTypeDate= new Date(+year, +month - 1, +day);
@@ -63,9 +65,12 @@ export class UserMainpageComponent implements OnInit {
     this.userService.getSurveys().subscribe({
         next: (response: Survey[]) => {
           this.surveys = response;
+          console.log(response);
           for (let i = 0; i < this.surveys.length; i++) {
-            this.surveys[i].start_date = this.formatDate(this.surveys[i].start_date);
-            this.surveys[i].end_date = this.formatDate(this.surveys[i].end_date);
+            console.log("Start date: " + this.surveys[i].start_Date);
+            console.log("End date: " + this.surveys[i].end_Date);
+            this.surveys[i].start_Date = this.formatDate(this.surveys[i].start_Date);
+            this.surveys[i].end_Date = this.formatDate(this.surveys[i].end_Date);
           }
           this.checkIfSurveysWereCompletedByCurrentUser();
         },
@@ -82,7 +87,9 @@ export class UserMainpageComponent implements OnInit {
           next: (response: CompletedSurvey[]) => {
             this.completedSurveys.push(response.length != 0);
           },
-          error: (error) => alert(error.message)
+          error: (error) => {
+            console.log("User does not have any completed surveys.")
+          }
         }
       )
     }
@@ -104,7 +111,7 @@ export class UserMainpageComponent implements OnInit {
   }
 
   public verifyCreator(surveyId: number): boolean {
-    this.isCreator = localStorage.getItem('email') === this.surveys[surveyId].creator;
+    this.isCreator = localStorage.getItem('email') === this.getSurveyById(surveyId)?.creator;
     return this.isCreator;
   }
 
@@ -114,10 +121,10 @@ export class UserMainpageComponent implements OnInit {
       height: '300px',
       data: {
           id: surveyId,
-          title: this.surveys[surveyId].title,
-          creator: this.surveys[surveyId].creator,
-          start_date: this.surveys[surveyId].start_date,
-          end_date: this.surveys[surveyId].end_date
+          title: this.getSurveyById(surveyId).title,
+          creator: this.getSurveyById(surveyId).creator,
+          start_date: this.getSurveyById(surveyId).start_date,
+          end_date: this.getSurveyById(surveyId).end_date
       }
     }).afterClosed()
       .subscribe((shouldReload: boolean) => {
@@ -133,10 +140,10 @@ export class UserMainpageComponent implements OnInit {
       height: '550px',
       data: {
         id: surveyId,
-        title: this.surveys[surveyId].title,
-        creator: this.surveys[surveyId].creator,
-        start_date: this.surveys[surveyId].start_date,
-        end_date: this.surveys[surveyId].end_date,
+        title: this.getSurveyById(surveyId).title,
+        creator: this.getSurveyById(surveyId).creator,
+        start_date: this.getSurveyById(surveyId).start_date,
+        end_date: this.getSurveyById(surveyId).end_date,
       }
     }).afterClosed()
       .subscribe((shouldReload: boolean) => {
@@ -144,6 +151,10 @@ export class UserMainpageComponent implements OnInit {
 
         if (shouldReload) window.location.reload();
       });
+  }
+
+  public getSurveyById(surveyId : number) {
+    return this.surveys.filter((survey: { id: number; }) => survey.id === surveyId)[0];
   }
 
 

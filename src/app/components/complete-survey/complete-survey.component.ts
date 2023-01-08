@@ -21,10 +21,10 @@ export class CompleteSurveyComponent implements OnInit {
   public surveyId: number | any;
   public completeSurveyForm: FormGroup | any;
   public questions: Question[] | any;
-  public answers: Answer[] | any;
+  public answers: Answer[] | any = [];
   public surveys: Survey[] | any;
   public completedSurvey: CompletedSurveyDto | any;
-  public users: User[] | any;
+  public users: User[] | any = [];
   public user: User | any;
   public allAnswers: Answer[] | any;
   public modifiedAnswer: Answer | any;
@@ -36,7 +36,10 @@ export class CompleteSurveyComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.data.currentMessage.subscribe(message => this.surveyId = message);
+    this.data.currentMessage.subscribe(message => {
+      console.log('received ', message)
+      return this.surveyId = message;
+    });
     this.getQuestions();
     this.getAnswers();
     this.getSurveyById();
@@ -51,8 +54,9 @@ export class CompleteSurveyComponent implements OnInit {
         next: (response: Question[]) => {
           this.questions = response;
         },
-        error: (error) =>
-          alert(error.message)
+        error: (error) => {
+          // alert(error.message);
+        }
       }
     )
   }
@@ -60,10 +64,12 @@ export class CompleteSurveyComponent implements OnInit {
   public getAnswers(): void {
     this.userService.getAnswers().subscribe(
       {
-        next: (response: Answer[]) =>
-          this.answers = response,
-        error: (error) =>
-          alert(error.message)
+        next: (response: Answer[]) => {
+          this.answers = response
+        },
+        error: (error) => {
+          // alert(error.message);
+        }
       }
     )
   }
@@ -72,8 +78,9 @@ export class CompleteSurveyComponent implements OnInit {
     this.userService.getSurveyById(this.surveyId).subscribe({
         next: (response: Survey[]) =>
           this.surveys = response,
-        error: (error) =>
-          alert(error.message)
+        error: (error) => {
+          // alert(error.message);
+        }
       }
     )
   }
@@ -83,9 +90,10 @@ export class CompleteSurveyComponent implements OnInit {
     this.userService.getUserByEmail(localStorage.getItem('email')).subscribe(
       {
         next: (response: User[]) =>
-          this.users = response,
-        error: (error) =>
-          alert(error.message)
+          this.users.push(response),
+        error(error) {
+          // return alert(error.message);
+        }
       }
     )
   }
@@ -97,22 +105,27 @@ export class CompleteSurveyComponent implements OnInit {
         next: (response: Answer) => {
           this.modifiedAnswer = response;
         },
-        error: (error) =>
-          alert(error.message)
+        error: (error) => {
+          // alert(error.message);
+        }
       }
     )
   }
 
   public saveCompletedSurvey(): void {
     if (this.completeSurveyForm.invalid) {
+      console.log("Invalid");
     } else {
       this.completedSurvey = new CompletedSurveyDto(this.users[0].id, this.surveyId);
 
+      console.log("Calling:")
       this.userService.completedSurvey(this.completedSurvey).subscribe({
         next: (response: CompletedSurveyDto) => {
           this.completedSurvey = response;
         },
-        error: (error) => alert(error.message)
+        error: (error) => {
+          // alert(error.message);
+        }
       });
 
       this.userService.getAnswers().subscribe(
@@ -121,13 +134,14 @@ export class CompleteSurveyComponent implements OnInit {
             this.allAnswers = response;
             for (var i = 0; i < this.answers.length; i++) {
               this.allAnswers[i].noResponses = this.allAnswers[i].noResponses + this.answers[i].noResponses;
-              //metoda care duce la api-ul unde inlocuiesc datele cu cele updatate dupa adunarea numarului de raspunsuri
-              this.modifyAnswer(i, this.allAnswers[i].question_id, this.allAnswers[i].answer, this.allAnswers[i].noResponses);
+              //metoda care duce la endpoint-ul unde inlocuiesc datele cu cele updatate dupa adunarea numarului de raspunsuri
+              this.modifyAnswer(this.allAnswers[i].id, this.allAnswers[i].question_id, this.allAnswers[i].answer, this.allAnswers[i].noResponses);
               await delay(50)
             }
           },
-          error: (error) =>
-            alert(error.message)
+          error: (error) => {
+            // alert(error.message);
+          }
         }
       )
     }
@@ -140,8 +154,9 @@ export class CompleteSurveyComponent implements OnInit {
         console.log('set : ' + this.answers[i].id + " to 0")
       }
     }
-    this.answers[answerId].noResponses++;
-    console.log('incremented ' + answerId + ' to ' + this.answers[answerId].noResponses)
+    const selectedAnswers = this.answers.filter((answer: { id: number; }) => answer.id === answerId)[0];
+    selectedAnswers.noResponses++;
+    console.log('incremented ' + answerId + ' to ' + selectedAnswers.noResponses)
   }
 
 }
